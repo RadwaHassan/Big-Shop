@@ -1,7 +1,6 @@
 
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.io.*,java.util.*,java.sql.*"%>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <!DOCTYPE html>
 <html>
@@ -368,9 +367,9 @@
                     <h3 class="cate">CATEGORIES</h3>
     <!--Add Code !-->                
                     <ul class="menu">
-                        <c:forEach var =" " items="" >
+                        <c:forEach items="${categories.row}" var ="row" >
                             
-                            <li class="item1"><a href="#">Curabitur sapien<img class="arrow-img" src="images/arrow1.png" alt=""/> </a>
+                            <li class="item1"><a href="/category servlet?${row.id}">${row.name}<img class="arrow-img" src="images/arrow1.png" alt=""/> </a>
                             <ul class="cute">
                                 <li class="subitem1"><a href="product.html">Cute Kittens </a></li>
                                 <li class="subitem2"><a href="product.html">Strange Stuff </a></li>
