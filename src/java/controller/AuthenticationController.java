@@ -1,28 +1,21 @@
+package controller;
 
+import bean.User;
+import dao.UserDao;
 
-/**
- * @author Mohamed
- * @version 1.0
- * @created 28-Feb-2015 11:29:39 AM
- */
 public class AuthenticationController {
 
-	private static AuthenticationController instance;
-	private UserDao UserDao;
-	public UserDao m_UserDao;
-
-
-
-	public void finalize() throws Throwable {
-
-	}
-
+	private static AuthenticationController INSTANCE = new AuthenticationController();
+	private UserDao userDao;
+	
 	private AuthenticationController(){
-
+            
+            //get UserDao instance
+            userDao = UserDao.getInstance();
 	}
 
 	public static AuthenticationController getInstance(){
-		return null;
+		return INSTANCE;
 	}
 
 	/**

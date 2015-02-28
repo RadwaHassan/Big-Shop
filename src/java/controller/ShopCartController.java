@@ -1,43 +1,32 @@
+package controller;
 
+import bean.OrderProduct;
+import dao.OrderDao;
+import dao.OrderProductDao;
 import java.util.ArrayList;
 
-
-
-/**
- * @author Mohamed
- * @version 1.0
- * @created 28-Feb-2015 11:29:30 AM
- */
 public class ShopCartController {
 
-	private static ShopCartController instance;
-	private OrderDao orderDao;
-	private OrderProductDao orderProductDao;
-	public OrderDao m_OrderDao;
-	public OrderProductDao m_OrderProductDao;
+    private static ShopCartController INSTANCE = new ShopCartController();
+    private OrderDao orderDao;
+    private OrderProductDao orderProductDao;
 
+    private ShopCartController() {
+        
+        orderDao = OrderDao.getInstance();
+        orderProductDao = OrderProductDao.getInstance();
+    }
 
+    /**
+     *
+     * @param orderProducts
+     */
+    public boolean buyOrder(ArrayList<OrderProduct> orderProducts) {
+        return false;
+    }
 
-	public void finalize() throws Throwable {
-
-	}
-
-	private ShopCartController(){
-
-	}
-
-	/**
-	 * 
-	 * @param orderProducts
-	 */
-	public boolean buyOrder(ArrayList<OrderProduct> orderProducts){
-		return false;
-	}
-
-	public static ShopCartController getInstance(){
-		return null;
-	}
-
-	
+    public static ShopCartController getInstance() {
+        return INSTANCE;
+    }
 
 }

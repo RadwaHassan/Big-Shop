@@ -1,17 +1,12 @@
+package dao;
 
+import bean.Product;
 import java.util.ArrayList;
 
-
-
-/**
- * @author Mohamed
- * @version 1.0
- * @created 28-Feb-2015 11:17:02 AM
- */
 public class ProductDao {
 
-	private static ProductDao instance;
-	public Product m_Product;
+	private static ProductDao INSTANCE = new ProductDao();
+	
 
 
 
@@ -40,7 +35,7 @@ public class ProductDao {
 	}
 
 	public static ProductDao getInstance(){
-		return null;
+		return INSTANCE;
 	}
 
 	/**

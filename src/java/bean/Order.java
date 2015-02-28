@@ -1,27 +1,40 @@
+package bean;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-
-
-/**
- * @author Mohamed
- * @version 1.0
- * @created 28-Feb-2015 11:11:04 AM
- */
 public class Order {
 
-	private Date date;
-	private int id;
-	private ArrayList<OrderProduct> products;
-	//public OrderDao m_OrderDao;
+    private Date date;
+    private int id;
+    private ArrayList<OrderProduct> products;
 
-	public Order(){
+    public Order() {
 
-	}
+    }
 
-	public void finalize() throws Throwable {
+    public Date getDate() {
+        return date;
+    }
 
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ArrayList<OrderProduct> getProducts() {
+        return products;
+    }
+
+    public void setProducts(ArrayList<OrderProduct> products) {
+        this.products = products;
+    }
 
 }

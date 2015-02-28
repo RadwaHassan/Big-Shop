@@ -1,28 +1,19 @@
+package controller;
 
+import bean.User;
+import dao.UserDao;
 
-/**
- * @author Mohamed
- * @version 1.0
- * @created 28-Feb-2015 11:29:51 AM
- */
 public class UserProfileController {
 
-	private static UserProfileController instance;
+	private static UserProfileController INSTANCE = new UserProfileController();
 	private UserDao userDao;
-	public UserDao m_UserDao;
-
-
-
-	public void finalize() throws Throwable {
-
-	}
 
 	private UserProfileController(){
-
+            userDao = UserDao.getInstance();
 	}
 
 	public static UserProfileController getInstance(){
-		return null;
+		return INSTANCE;
 	}
 
 	/**
