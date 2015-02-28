@@ -18,32 +18,29 @@ public class ProductInformationController {
         productDao = ProductDao.getInstance();
     }
 
-    public ArrayList<Category> getCategoriesWithProducts() {
-        return null;
-    }
-
-    /**
-     *
-     * @param id
-     */
-    public Category getCategoryWithProducts(int id) {
-        return null;
-    }
-
     public static ProductInformationController getInstance() {
         return INSTANCE;
+    }
+
+    public ArrayList<Category> getCategories() {
+        ArrayList<Category> categories = categoryDao.getCategories();
+        return categories;
+    }
+
+    public ArrayList<Product> getProductsForCategory(String categoryname) {
+        ArrayList<Product> products = productDao.getProductsByCategory(categoryname);
+        return products;
     }
 
     /**
      *
      * @param code
-     * @return Product
-     * Get product details from DB by it's code
+     * @return Product Get product details from DB by it's code
      */
     public Product getProductDetails(int code) {
         
         // get froduct from DB by code
-        Product product = productDao.findProduct(code);        
+        Product product = productDao.findProduct(code);
         return product;
     }
 
