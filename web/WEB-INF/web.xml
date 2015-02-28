@@ -4,29 +4,32 @@
         <servlet-name>registration</servlet-name>
         <servlet-class>servlet.registration</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>ProductDetailsServlet</servlet-name>
         <servlet-class>servlet.ProductDetailsServlet</servlet-class>
-    </servlet> 
-    
-    <servlet>   
+    </servlet>
+    <servlet>
         <servlet-name>update</servlet-name>
         <servlet-class>servlet.update</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>CategoryOfProduct</servlet-name>
+        <servlet-class>servlet.CategoryOfProduct</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>registration</servlet-name>
         <url-pattern>/registration</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>update</servlet-name>
         <url-pattern>/update</url-pattern>
-     </servlet-mapping>
-     
-      <servlet-mapping>    
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ProductDetailsServlet</servlet-name>
         <url-pattern>/ProductDetails</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CategoryOfProduct</servlet-name>
+        <url-pattern>/CategoryOfProduct</url-pattern>
     </servlet-mapping>
 </web-app>

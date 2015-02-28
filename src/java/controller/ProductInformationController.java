@@ -27,8 +27,8 @@ public class ProductInformationController {
         return categories;
     }
 
-    public ArrayList<Product> getProductsForCategory(String categoryname) {
-        ArrayList<Product> products = productDao.getProductsByCategory(categoryname);
+    public ArrayList<Product> getProductsForCategory(int categoryid) {
+        ArrayList<Product> products = productDao.getProductsByCategory(categoryid);
         return products;
     }
 

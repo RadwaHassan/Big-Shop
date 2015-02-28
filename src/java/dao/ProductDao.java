@@ -42,7 +42,7 @@ public class ProductDao {
 	 * 
 	 * @param categoryName
 	 */
-	public ArrayList<Product> getProductsByCategory(String categoryName){
+	public ArrayList<Product> getProductsByCategory(int categoryId){
 		return null;
 	}
 
