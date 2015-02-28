@@ -1,34 +1,25 @@
+package doa;
 
+import bean.OrderProduct;
 
-/**
- * @author Mohamed
- * @version 1.0
- * @created 28-Feb-2015 11:17:57 AM
- */
 public class OrderProductDao {
 
-	private static OrderProductDao Instance;
+    private static OrderProductDao INSTANCE = new OrderProductDao();
 
+    private OrderProductDao() {
 
+    }
 
-	public void finalize() throws Throwable {
+    public static OrderProductDao getInstance() {
+        return INSTANCE;
+    }
 
-	}
-
-	private OrderProductDao(){
-
-	}
-
-	public static OrderProductDao getInstance(){
-		return null;
-	}
-
-	/**
-	 * 
-	 * @param orderProduct
-	 */
-	public boolean insertOrderProduct(OrderProduct orderProduct){
-		return false;
-	}
+    /**
+     *
+     * @param orderProduct
+     */
+    public boolean insertOrderProduct(OrderProduct orderProduct) {
+        return false;
+    }
 
 }

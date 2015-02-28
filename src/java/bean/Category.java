@@ -1,25 +1,39 @@
+package bean;
 
 import java.util.ArrayList;
 
-
-
-/**
- * @author Mohamed
- * @version 1.0
- * @created 28-Feb-2015 11:11:41 AM
- */
 public class Category {
 
-	private int id;
-	private String name;
-	private ArrayList<Product> products;
+    private int id;
+    private String name;
+    private ArrayList<Product> products;
 
-	public Category(){
+    public Category() {
 
-	}
+    }
 
-	public void finalize() throws Throwable {
+    public int getId() {
+        return id;
+    }
 
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
+    }
 
 }

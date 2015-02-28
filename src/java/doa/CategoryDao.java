@@ -1,57 +1,46 @@
+package doa;
 
+import bean.Category;
 import java.util.ArrayList;
 
-
-
-/**
- * @author Mohamed
- * @version 1.0
- * @created 28-Feb-2015 11:17:21 AM
- */
 public class CategoryDao {
 
-	private static CategoryDao instance;
+    private static CategoryDao INSTANCE = new CategoryDao();
 
+    private CategoryDao() {
 
+    }
 
-	public void finalize() throws Throwable {
+    /**
+     *
+     * @param id
+     */
+    public boolean deleteCategory(int id) {
+        return false;
+    }
 
-	}
+    /**
+     *
+     * @param id
+     */
+    public Category findCategory(int id) {
+        return null;
+    }
 
-	private CategoryDao(){
+    public ArrayList<Category> getCategories() {
+        return null;
+    }
 
-	}
+    public static CategoryDao getInstance() {
+        return INSTANCE;
+    }
 
-	/**
-	 * 
-	 * @param id
-	 */
-	public boolean deleteCategory(int id){
-		return false;
-	}
-
-	/**
-	 * 
-	 * @param id
-	 */
-	public Category findCategory(int id){
-		return null;
-	}
-
-	public ArrayList<Category> getCategories(){
-		return null;
-	}
-
-	public static CategoryDao getInstance(){
-		return null;
-	}
-
-	/**
-	 * 
-	 * @param name
-	 */
-	public boolean insertCategory(String name){
-		return false;
-	}
+    /**
+     *
+     * @param name
+     */
+    public boolean insertCategory(String name) {
+        return false;
+    }
 
 }
