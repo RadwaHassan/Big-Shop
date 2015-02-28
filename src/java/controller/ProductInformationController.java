@@ -37,9 +37,14 @@ public class ProductInformationController {
     /**
      *
      * @param code
+     * @return Product
+     * Get product details from DB by it's code
      */
     public Product getProductDetails(int code) {
-        return null;
+        
+        // get froduct from DB by code
+        Product product = productDao.findProduct(code);        
+        return product;
     }
 
 }

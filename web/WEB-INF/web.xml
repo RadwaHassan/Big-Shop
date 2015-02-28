@@ -5,6 +5,8 @@
         <servlet-class>servlet.registration</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ProductDetailsServlet</servlet-name>
+        <servlet-class>servlet.ProductDetailsServlet</servlet-class>
         <servlet-name>update</servlet-name>
         <servlet-class>servlet.update</servlet-class>
     </servlet>
@@ -15,5 +17,7 @@
     <servlet-mapping>
         <servlet-name>update</servlet-name>
         <url-pattern>/update</url-pattern>
+        <servlet-name>ProductDetailsServlet</servlet-name>
+        <url-pattern>/ProductDetails</url-pattern>
     </servlet-mapping>
 </web-app>
