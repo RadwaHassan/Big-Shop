@@ -38,7 +38,7 @@ public class ProductInformationController {
      * @return Product Get product details from DB by it's code
      */
     public Product getProductDetails(int code) {
-        
+
         // get froduct from DB by code
         Product product = productDao.findProduct(code);
         return product;
