@@ -1,8 +1,9 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable{
 
     private String address;
     private Date birthDate;

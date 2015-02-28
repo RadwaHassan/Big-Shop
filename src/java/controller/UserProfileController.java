@@ -21,6 +21,7 @@ public class UserProfileController {
 	 * @param user
 	 */
 	public boolean signUP(User user){
+            userDao.insertUser(user);
 		return false;
 	}
 
@@ -29,6 +30,7 @@ public class UserProfileController {
 	 * @param user
 	 */
 	public boolean updateProfile(User user){
+            userDao.updateUser(user);
 		return false;
 	}
 
