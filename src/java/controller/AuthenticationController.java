@@ -1,7 +1,7 @@
 package controller;
 
 import bean.User;
-import doa.UserDao;
+import dao.UserDao;
 
 public class AuthenticationController {
 

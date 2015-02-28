@@ -1,4 +1,4 @@
-package doa;
+package dao;
 
 import bean.Product;
 import java.util.ArrayList;

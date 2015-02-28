@@ -2,8 +2,8 @@ package controller;
 
 import bean.Category;
 import bean.Product;
-import doa.CategoryDao;
-import doa.ProductDao;
+import dao.CategoryDao;
+import dao.ProductDao;
 import java.util.ArrayList;
 
 public class ProductInformationController {

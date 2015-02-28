@@ -1,7 +1,7 @@
 package controller;
 
 import bean.Product;
-import doa.ProductDao;
+import dao.ProductDao;
 
 public class ProductManagmentController {
 
