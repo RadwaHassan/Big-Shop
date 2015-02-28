@@ -31,28 +31,28 @@
 					<h3>PERSONAL INFORMATION</h3>
 					<div class="mation">
 						<span>FullName</span>
-						<input type="text"> 
+						<input name="name" type="text"> 
 					
 						<span>Job<label>*</label></span>
-						<input type="text"> 
+						<input name="job" type="text"> 
 					 
 						 <span>Email Address</span>
-						 <input type="text">
+						 <input name="email" type="text">
                                                  
                                                   <span>Credit Balance</span>
-						 <input type="text">
+						 <input name="credit" type="text">
                                                  
                                                   <span>Birth Date<label>*</label></span>
-						 <input type="text">
+						 <input name="birthDate" type="text">
                                                  
                                                   <span>Address<label>*</label></span>
-						 <input type="text">
+						 <input name="address" type="text">
                                                  
                                                   <span>Role<label>*</label></span>
-						 <input type="text">
+						 <input name="role" type="text">
                                                  
                                                  <span>Password</span>
-								<input type="text">  
+                                                 <input name="password" type="text">  
 					</div>
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
@@ -70,5 +70,7 @@
 		   </div>
 	
         <jsp:include page="footer.jsp"/>
+        <jsp:useBean  id= "mybean" class="bean.User" scope="session"/>
+	<jsp:setProperty name= "myBean" property="*"/>
     </body>
 </html>
