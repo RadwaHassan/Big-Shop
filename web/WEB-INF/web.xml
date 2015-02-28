@@ -5,15 +5,19 @@
         <servlet-class>servlet.registration</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>HomePage</servlet-name>
-        <servlet-class>servlet.HomePage</servlet-class>
+        <servlet-name>ProductDetailsServlet</servlet-name>
+        <servlet-class>servlet.ProductDetailsServlet</servlet-class>
+        <servlet-name>update</servlet-name>
+        <servlet-class>servlet.update</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>registration</servlet-name>
         <url-pattern>/registration</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>HomePage</servlet-name>
-        <url-pattern>/HomePage</url-pattern>
+        <servlet-name>update</servlet-name>
+        <url-pattern>/update</url-pattern>
+        <servlet-name>ProductDetailsServlet</servlet-name>
+        <url-pattern>/ProductDetails</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -8,6 +8,7 @@ public class Order {
     private Date date;
     private int id;
     private ArrayList<OrderProduct> products;
+    private String email;
 
     public Order() {
 
@@ -37,4 +38,11 @@ public class Order {
         this.products = products;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

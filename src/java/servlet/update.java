@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author shimaa azmy
  */
-public class registration extends HttpServlet {
+public class update extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,22 +31,23 @@ public class registration extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     UserProfileController usercontroller;
-    /* protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-     throws ServletException, IOException {
-     response.setContentType("text/html;charset=UTF-8");
-     try (PrintWriter out = response.getWriter()) {
+   /*protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
            
-     out.println("<!DOCTYPE html>");
-     out.println("<html>");
-     out.println("<head>");
-     out.println("<title>Servlet registration</title>");            
-     out.println("</head>");
-     out.println("<body>");
-     out.println("<h1>Servlet registration at " + request.getContextPath() + "</h1>");
-     out.println("</body>");
-     out.println("</html>");
-     }
-     }*/
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet update</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet update at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }*/
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -59,7 +60,7 @@ public class registration extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
+       // processRequest(request, response);
     }
 
     /**
@@ -73,13 +74,12 @@ public class registration extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
+       // processRequest(request, response);
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-      // usercontroller.signUP(user);
+       //usercontroller.updateProfile(user);
         out.println( "user name is " + user.getName());
-        out.println( "user name is " + user.getJob());
     }
 
     /**

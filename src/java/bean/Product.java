@@ -1,5 +1,7 @@
 package bean;
 
+import static com.sun.org.apache.bcel.internal.Repository.instanceOf;
+
 public class Product {
 
     private int code;
@@ -46,6 +48,19 @@ public class Product {
 
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public int hashCode() {
+        return 1;
+    }
+
+    public boolean equals(Object obj) {
+        if ((obj instanceof Product) && ((Product) obj).getCode() == this.code) {
+            return true;
+        } else {
+
+            return false;
+        }
     }
 
 }
