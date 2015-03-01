@@ -56,7 +56,7 @@ public class ProductDao {
      *
      * @param code
      */
-    public Product findProduct(int code) throws SQLException {
+    public Product findProduct(int code){
         Connection connection = null;
         Product product = new Product();;
         try {
@@ -83,7 +83,11 @@ public class ProductDao {
             ex.printStackTrace();
         } finally {
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             }
         }

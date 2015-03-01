@@ -97,7 +97,7 @@ public class UserDao {
      *
      * @param user
      */
-    public boolean insertUser(User user) throws SQLException {
+    public boolean insertUser(User user){
         Connection connection = null;
         boolean isInserted = false;
         int rowaffected = 0;
@@ -129,7 +129,11 @@ public class UserDao {
             Logger.getLogger(CategoryDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         }
@@ -141,7 +145,7 @@ public class UserDao {
      *
      * @param user
      */
-             public boolean updateUser(User user) throws SQLException {
+             public boolean updateUser(User user){
         Connection connection = null;
         int rowaffected = 0;
         boolean isUpdated = false;
@@ -163,7 +167,11 @@ public class UserDao {
         }
         finally{
             if (connection !=null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
         return isUpdated ;
