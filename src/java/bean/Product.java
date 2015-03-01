@@ -10,17 +10,6 @@ public class Product {
     private String name;
     private float price;
 
-    public Product() {
-    }
-    
-    
-
-    public Product(int code, String name, float price) {
-        this.code = code;
-        this.name = name;
-        this.price = price;
-    }
-    
     
    
     public int getCode() {
