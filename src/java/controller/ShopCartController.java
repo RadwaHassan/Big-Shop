@@ -51,7 +51,7 @@ public class ShopCartController {
             orderProductsArray = order.getProducts();
             orderProductsArray.add(orderProduct);
             order.setProducts(orderProductsArray);
-            order.setDate(new Date());
+            order.setDate((new Date()).toString());
             order.setEmail(user.getEmail());
             return orderId;
         } //order already exists and has products in it

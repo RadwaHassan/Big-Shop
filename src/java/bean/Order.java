@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Order {
 
-    private Date date;
+    private String date;
     private int id;
     private ArrayList<OrderProduct> products;
     private String email;
@@ -14,11 +14,11 @@ public class Order {
 
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -45,4 +45,6 @@ public class Order {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    
 }

@@ -1,18 +1,27 @@
 package bean;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable{
+public class User {
 
     private String address;
-    private Date birthDate;
+    private String birthDate;
     private double credit;
     private String email;
     private String job;
     private String name;
     private String password;
     private int role;
+    private int status;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+    
 
     public String getAddress() {
         return address;
@@ -22,11 +31,11 @@ public class User implements Serializable{
         this.address = address;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
@@ -77,5 +86,6 @@ public class User implements Serializable{
     public void setRole(int role) {
         this.role = role;
     }
-
+    
+    
 }

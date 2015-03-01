@@ -1,14 +1,33 @@
 package bean;
 
-import static com.sun.org.apache.bcel.internal.Repository.instanceOf;
-
 public class Product {
 
     private int code;
     private String description;
     private String imagePath;
     private String name;
-    private float price;
+    private double price;
+    private int qty;
+    private int catId;
+
+    public int getCatId() {
+        return catId;
+    }
+
+    public void setCatId(int catId) {
+        this.catId = catId;
+    }
+    
+    
+    
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+    
 
     public int getCode() {
         return code;
@@ -42,25 +61,12 @@ public class Product {
         this.name = name;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
-    }
-
-    public int hashCode() {
-        return 1;
-    }
-
-    public boolean equals(Object obj) {
-        if ((obj instanceof Product) && ((Product) obj).getCode() == this.code) {
-            return true;
-        } else {
-
-            return false;
-        }
     }
 
 }
