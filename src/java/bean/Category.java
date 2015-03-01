@@ -12,6 +12,13 @@ public class Category {
 
     }
 
+    public Category(int id, String name, ArrayList<Product> products) {
+        this.id = id;
+        this.name = name;
+        this.products = products;
+    }
+    
+    
     public int getId() {
         return id;
     }

@@ -2,6 +2,7 @@
 package servlet;
 
 import bean.Category;
+import bean.Product;
 import controller.ProductInformationController;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,7 +27,10 @@ public class HomePage extends HttpServlet {
             throws ServletException, IOException {
         
      prodInfocontroller= ProductInformationController.getInstance();
-     ArrayList<Category> categories = prodInfocontroller.getCategories();
+    // ArrayList<Category> categories = prodInfocontroller.getCategories();
+     ArrayList<Category> categories= new ArrayList<Category>();
+     ArrayList<Product> products = new ArrayList<Product>();
+    
          HttpSession session  = request.getSession(true);
               session.setAttribute("category","categories");
         
