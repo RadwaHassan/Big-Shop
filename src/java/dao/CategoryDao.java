@@ -97,10 +97,10 @@ public class CategoryDao {
 
         Connection connection = null;
         Category[] arr = null;
-        ArrayList<Category> list=null;
+        ArrayList<Category> list = null;
         try {
             connection = new DBConnection().getConnection();
-             list = new ArrayList<Category>();
+            list = new ArrayList<Category>();
             Category item;
             Statement stmnt = connection.createStatement();
             ResultSet rs = stmnt.executeQuery("SELECT * FROM category");
@@ -123,6 +123,36 @@ public class CategoryDao {
                 }
             }
             return list;
+        }
+
+    }
+
+    public int[] getCategoriesIds() {
+
+        Connection connection = null;
+        Category[] arr = null;
+        int[] cat_ids = null;
+        try {
+            connection = new DBConnection().getConnection();
+
+            Category item;
+            Statement stmnt = connection.createStatement();
+            ResultSet rs = stmnt.executeQuery("SELECT cat_id FROM category");
+            int i = 0;
+            while (rs.next()) {
+                cat_ids[i] = rs.getInt(1);
+                i++;
+            }
+
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(CategoryDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            return cat_ids;
         }
 
     }
@@ -169,4 +199,31 @@ public class CategoryDao {
 
         return isInserted;
     }
+    
+    // added by eman
+    public  int getNumberOfRows(){
+           String myquery="";
+           int count=0;
+            
+            try {
+               Connection connection=null;
+               connection=new DBConnection().getConnection();
+               Statement statement=connection.createStatement();
+               myquery="select * from category";
+              // System.out.println("before while");
+               ResultSet resultSet=statement.executeQuery(myquery);
+                while (resultSet.next()) {
+                      //System.out.println("inside while");
+                    count ++;
+                    
+                    
+                }
+              
+           } catch (SQLException ex) {
+               Logger.getLogger(TestClass.class.getName()).log(Level.SEVERE, null, ex);
+           }
+           
+           // System.out.println("inside method "+count);
+            return count;
+        }
 }

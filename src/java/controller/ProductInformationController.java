@@ -26,6 +26,28 @@ public class ProductInformationController {
         ArrayList<Category> categories = categoryDao.getCategories();
         return categories;
     }
+    
+    // added by sara
+    
+    public ArrayList<Category> getCategoryWithProduct() {
+        
+        //get list of category
+        ArrayList<Category> categories = categoryDao.getCategories();
+        
+        // get count of row of category
+        int size = categoryDao.getNumberOfRows();
+        
+        //get category with product
+        for (Category category : categories) {
+            int[] catID = catID = categoryDao.getCategoriesIds();
+            for (int i = 0; i < size; i++) {
+                productDao.findProductByCategoryID(catID[i]);
+            }
+
+        }
+        return categories;
+
+    }
 
     public ArrayList<Product> getProductsForCategory(int categoryid) {
         ArrayList<Product> products = productDao.getProductsByCategory(categoryid);
