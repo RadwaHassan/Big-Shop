@@ -35,11 +35,11 @@ public class HomePage extends HttpServlet {
         
        // get arraylist of gategory
        ArrayList<Category> categories = prodInfocontroller.getCategories();
+      
        // set gategorylist on session scope      
-//         HttpSession session  = request.getSession(true);
-//         session.setAttribute("category","categories");
+        // HttpSession session  = request.getSession(true);
+        // session.setAttribute("categories",categories);
         request.setAttribute("categories",categories);
-        
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
         dispatcher.forward(request, response);
   

@@ -29,8 +29,6 @@ public class Product {
     }
     
 
-    
-   
     public int getCode() {
         return code;
     }

@@ -27,7 +27,7 @@ public class ProductDao {
      *
      * @param code
      */
-    public boolean deleteProduct(int code) {
+    public boolean deleteProduct(int code) throws SQLException {
 
         Connection connection = null;
         boolean isDeleted = false;
@@ -43,15 +43,9 @@ public class ProductDao {
                 isDeleted = false;
             }
 
-        } catch (SQLException ex) {
-            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                connection.close();
             }
         }
 
@@ -189,7 +183,7 @@ public class ProductDao {
      *
      * @param product
      */
-    public boolean insertProduct(Product product) {
+    public boolean insertProduct(Product product){
         Connection connection = null;
         boolean isInserted = false;
         int rowaffected = 0;
@@ -235,8 +229,36 @@ public class ProductDao {
      *
      * @param product
      */
-    public boolean update(Product product) {
-        return false;
-    }
+     public boolean updateProduct(Product product) {/////////////modified
+      Connection connection = null;
+        int rowaffected = 0;
+        boolean isUpdated = false;
+        try {
 
+            connection = new DBConnection().getConnection();
+            String updatequery =" update product set name='"+product.getName()+"'  , price="+product.getPrice()+ ",quantity="+product.getQty()+ ", image='"+product.getImagePath()+"' ,description='"+product.getDescription()+"'  where code="+product.getCode()+";";
+            Statement statement = connection.createStatement();
+            rowaffected = statement.executeUpdate(updatequery);
+            if (rowaffected > 0) {
+                isUpdated = true;
+
+            } else {
+                isUpdated = false;
+            }
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            if (connection !=null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return isUpdated ;
+
+    }
 }

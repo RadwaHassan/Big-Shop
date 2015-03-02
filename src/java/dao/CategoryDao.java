@@ -24,7 +24,7 @@ public class CategoryDao {
      *
      * @param id
      */
-    public boolean deleteCategory(int id) {
+    public boolean deleteCategory(int id){
         Connection connection = null;
         int rowaffected = 0;
         boolean isDeleted = false;
@@ -60,7 +60,7 @@ public class CategoryDao {
      *
      * @param id
      */
-    public Category findCategory(int id) {
+    public Category findCategory(int id){
         Connection connection = null;
         Category category = new Category();;
         try {
@@ -93,7 +93,7 @@ public class CategoryDao {
         return category;
     }
 
-    public ArrayList<Category> getCategories() {
+    public ArrayList<Category> getCategories(){
 
         Connection connection = null;
         Category[] arr = null;
@@ -165,7 +165,7 @@ public class CategoryDao {
      *
      * @param name
      */
-    public boolean insertCategory(String name) {
+    public boolean insertCategory(String name){
         Connection connection = null;
         boolean isInserted = false;
         int rowaffected = 0;
