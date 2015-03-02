@@ -1,5 +1,7 @@
 
 
+<%@page import="bean.Product"%>
+<%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 
@@ -210,20 +212,31 @@
                 </div>
                 <div class="clearfix"> </div>
             </div>
-            <div class="products">
-                <h5 class="latest-product">LATEST PRODUCTS</h5>	
-                <a class="view-all" href="product.html">VIEW ALL<span> </span></a> 		     
-            </div>
+
+            <!-- add code product here!-->  
+
+            <c:forEach items="${category}" var ="row" begin="1" end="2">
+                
+                    <div class="products">
+                        <h5 class="latest-product"><c:out value="${row.name}" /></h5>	
+                        <a class="view-all" href="product.html">VIEW ALL<span> </span></a> 		     
+                    </div>
+
+                </c:forEach>    
+              
+
+            
             <div class="product-left">
+   <!--for each picture !-->
+            <c:forEach items="${products}" var ="row" begin="1" end="3">
                 <div class="col-md-4 chain-grid">
-                    <a href="single.html"><img class="img-responsive chain" src="images/bott.jpg" alt=" " /></a>
+                    <a href="http://localhost:8090/E_Commerce/ProductDetails?productid=${row.code}"><img class="img-responsive chain" src="${row.imagePath}" alt=" " /></a>
                     <span class="star"> </span>
                     <div class="grid-chain-bottom">
-                        <h6><a href="single.html">Lorem ipsum dolor</a></h6>
+                        <h6><a href="http://localhost:8090/E_Commerce/ProductDetails?productid=${row.code}">${row.name}</a></h6>
                         <div class="star-price">
                             <div class="dolor-grid"> 
-                                <span class="actual">300$</span>
-                                <span class="reducedfrom">400$</span>
+                                <span class="actual">${row.price}</span>
                                 <span class="rating">
                                     <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
                                     <label for="rating-input-1-5" class="rating-star1"> </label>
@@ -237,11 +250,12 @@
                                     <label for="rating-input-1-1" class="rating-star"> </label>
                                 </span>
                             </div>
-                            <a class="now-get get-cart" href="#">ADD TO CART</a> 
+                            <a class="now-get get-cart" href="http://localhost:8090/E_Commerce/ShoppingCartDetailsServlet?productid=${row.code}">ADD TO CART</a> 
                             <div class="clearfix"> </div>
                         </div>
                     </div>
                 </div>
+            </c:forEach>
                 <div class="col-md-4 chain-grid">
                     <a href="single.html"><img class="img-responsive chain" src="images/bottle.jpg" alt=" " /></a>
                     <span class="star"> </span>
@@ -269,6 +283,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 <div class="col-md-4 chain-grid grid-top-chain">
                     <a href="single.html"><img class="img-responsive chain" src="images/baa.jpg" alt=" " /></a>
                     <span class="star"> </span>
@@ -305,7 +322,6 @@
                 <h3 class="cate">CATEGORIES</h3>
                 <!--Add Code !-->                
                 <ul class="menu">
-                    
                     <c:forEach items="${categories}" var ="row" >
 
                         

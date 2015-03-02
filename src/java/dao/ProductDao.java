@@ -94,6 +94,47 @@ public class ProductDao {
         return product;
     }
 
+    
+    
+        public Product findProductByCategoryID(int catId){
+        Connection connection = null;
+        Product product = new Product();;
+        try {
+
+            connection = new DBConnection().getConnection();
+            String searchSQL = "SELECT * FROM product WHERE cat_id= ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(searchSQL);
+            preparedStatement.setInt(1, catId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                product.setName(resultSet.getString(2));
+                product.setPrice(resultSet.getDouble(3));
+
+                product.setQty(resultSet.getInt(4));
+                product.setImagePath(resultSet.getString(5));
+                product.setDescription(resultSet.getString(6));
+                product.setCatId(resultSet.getInt(7));
+
+            }
+            resultSet.close();
+            preparedStatement.close();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+        return product;
+    }
+
+    
     public static ProductDao getInstance() {
         return INSTANCE;
     }

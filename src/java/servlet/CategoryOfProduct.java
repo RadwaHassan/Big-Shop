@@ -8,6 +8,7 @@ package servlet;
 import bean.Category;
 import bean.Product;
 import controller.ProductInformationController;
+import controller.ProductManagmentController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -17,33 +18,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 public class CategoryOfProduct extends HttpServlet {
 
-       ProductInformationController prodInfocontroller;
-    int categoryname;
-   
+    ProductInformationController prodInfocontroller;
+    int categoryid;
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // object from product info controller
-         prodInfocontroller= ProductInformationController.getInstance();
+        prodInfocontroller = ProductInformationController.getInstance();
+        
          //define aaraylist of product for specific category
-         ArrayList<Product> products = prodInfocontroller.getProductsForCategory(categoryname);
-         request.setAttribute("products","products");
+         ArrayList<Category> category = prodInfocontroller.getCategoryWithProduct();
          
-              
-     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
-     dispatcher.forward(request, response);
+        //get Product to display in home page
+        ArrayList<Product> products = prodInfocontroller.getProductsForCategory(categoryid);
+       //
+        request.setAttribute("category", category);
+        request.setAttribute("products", products);
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
+        dispatcher.forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
-    }
 
-   
-    
+    }
 
 }
