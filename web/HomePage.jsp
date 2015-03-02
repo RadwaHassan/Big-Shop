@@ -305,17 +305,15 @@
                 <h3 class="cate">CATEGORIES</h3>
                 <!--Add Code !-->                
                 <ul class="menu">
-                    <c:forEach items="${categories.row}" var ="row" >
+                    
+                    <c:forEach items="${categories}" var ="row" >
 
-                        <li class="item1"><a href="/HomePage?${row.id}">${row.name}<img class="arrow-img" src="images/arrow1.png" alt=""/> </a>
-
-                        </li>
+                        
+                        <li class="item1"><a href="/HomePage?${row.id}">${row.name}<img class="arrow-img" src="images/arrow1.png" alt=""> </a> </li>
+                            
 
                     </c:forEach>
-                    <li class="item1"><a href="/HomePage?${row.id}">${row.name}<img class="arrow-img" src="images/arrow1.png" alt=""/> </a>
-
-                    </li>
-
+                    
                 </ul>
             </div>
             <!--initiate accordion-->
