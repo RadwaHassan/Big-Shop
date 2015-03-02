@@ -6,5 +6,6 @@
 
 <%@page  import="bean.User" %>
 
+
  <jsp:setProperty name= "user" property="*"/>
  <jsp:forward page="/registration"/>

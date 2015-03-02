@@ -2,16 +2,16 @@ package bean;
 
 public class OrderProduct {
 
-    private int order;
+    private int orderId;
     private int productCode;
     private int quantity;
 
     public int getOrder() {
-        return order;
+        return orderId;
     }
 
     public void setOrder(int order) {
-        this.order = order;
+        this.orderId = order;
     }
 
     public int getProductCode() {

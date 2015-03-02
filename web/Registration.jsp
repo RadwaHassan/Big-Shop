@@ -5,7 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page  import="bean.User" %>
+<%@page import="bean.User" %>
+<jsp:useBean id= "user" class="bean.User" scope="session" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -48,7 +49,7 @@
                             <input name="credit" type="text">
 
                             <span>Birth Date<label>*</label></span>
-                            <input name="birthDate" type="text">
+                            <input name="" type="text">
 
                             <span>Address<label>*</label></span>
                             <input name="address" type="text">
@@ -75,6 +76,6 @@
                      </form>
                 </div>
             <jsp:include page="footer.jsp"/>
-           <jsp:useBean id= "user" class="bean.User" />
+           
     </body>
 </html>
