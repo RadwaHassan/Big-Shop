@@ -11,6 +11,7 @@ import controller.ProductInformationController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,10 +26,15 @@ public class CategoryOfProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-     
+        // object from product info controller
          prodInfocontroller= ProductInformationController.getInstance();
+         //define aaraylist of product for specific category
          ArrayList<Product> products = prodInfocontroller.getProductsForCategory(categoryname);
-
+         request.setAttribute("products","products");
+         
+              
+     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
+     dispatcher.forward(request, response);
     }
 
     @Override

@@ -27,7 +27,7 @@ public class ProductDao {
      *
      * @param code
      */
-    public boolean deleteProduct(int code) throws SQLException {
+    public boolean deleteProduct(int code) {
 
         Connection connection = null;
         boolean isDeleted = false;
@@ -43,9 +43,15 @@ public class ProductDao {
                 isDeleted = false;
             }
 
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -142,7 +148,7 @@ public class ProductDao {
      *
      * @param product
      */
-    public boolean insertProduct(Product product) throws SQLException {
+    public boolean insertProduct(Product product) {
         Connection connection = null;
         boolean isInserted = false;
         int rowaffected = 0;
@@ -172,7 +178,11 @@ public class ProductDao {
             Logger.getLogger(CategoryDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         }

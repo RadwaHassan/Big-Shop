@@ -21,22 +21,28 @@ public class HomePage extends HttpServlet {
 
     ProductInformationController prodInfocontroller;
     String categoryname=null;
+
+    public HomePage() {
+        // get object from controller
+         prodInfocontroller= ProductInformationController.getInstance();
+    }
  
+    
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-     prodInfocontroller= ProductInformationController.getInstance();
-    // ArrayList<Category> categories = prodInfocontroller.getCategories();
-     ArrayList<Category> categories= new ArrayList<Category>();
-     ArrayList<Product> products = new ArrayList<Product>();
-    
-         HttpSession session  = request.getSession(true);
-              session.setAttribute("category","categories");
+       // get arraylist of gategory
+       ArrayList<Category> categories = prodInfocontroller.getCategories();
+       // set gategorylist on session scope      
+//         HttpSession session  = request.getSession(true);
+//         session.setAttribute("category","categories");
+        request.setAttribute("categories",categories);
         
-       
-     RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
-     dispatcher.forward(request, response);
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
+        dispatcher.forward(request, response);
+  
     }
 
    
@@ -44,6 +50,8 @@ public class HomePage extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        
+             
+     
     }
 
 
