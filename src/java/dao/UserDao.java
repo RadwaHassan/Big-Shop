@@ -23,28 +23,36 @@ public class UserDao {
      * @param email
      * @param status
      */
-    public boolean changeStatus(String email, int status) throws SQLException {
-        Connection connection = null;
-        boolean isChanged = false;
+   public boolean changeStatus(String email, int status){
+        Connection connection=null;
+        boolean isChanged=false;
         try {
-
-            connection = new DBConnection().getConnection();
-            Statement statement = connection.createStatement();
-            String update = "UPDATE ecommerce.user set status" + status + "WHERE email= " + email;
-            int rowaffected = statement.executeUpdate(update);
-            if (rowaffected > 0) {
-                isChanged = true;
-
-            } else {
-                isChanged = false;
+            
+            connection=new DBConnection().getConnection();
+            Statement statement=connection.createStatement();
+                      //  String updateQuery = "update contact set pending=0 where contactId=" + item.getContactId() + " and userId=" + item.getUserId() + "";
+            
+            String updateQuery="update ecommerce.user set ecommerce.user.status="+status+" where ecommerce.user.email='"+email+"';";
+            int rowaffected=statement.executeUpdate(updateQuery);
+            if (rowaffected >0) {
+                isChanged=true;
+                
+            }else{
+            isChanged=false;
             }
-
+            
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
-        } finally {
+        }finally{
             if (connection != null) {
-                connection.close();
-
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             }
         }
         return isChanged;
@@ -55,7 +63,7 @@ public class UserDao {
      * @param email
      * @return
      */
-    public User findUser(String email) throws SQLException {
+    public User findUser(String email) {
         Connection connection = null;
         User user = new User();;
         try {
@@ -82,7 +90,11 @@ public class UserDao {
             ex.printStackTrace();
         } finally {
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             }
         }
@@ -97,7 +109,7 @@ public class UserDao {
      *
      * @param user
      */
-    public boolean insertUser(User user){
+    public boolean insertUser(User user) {
         Connection connection = null;
         boolean isInserted = false;
         int rowaffected = 0;
@@ -145,14 +157,14 @@ public class UserDao {
      *
      * @param user
      */
-             public boolean updateUser(User user){
+             public boolean updateUser(User user) {
         Connection connection = null;
         int rowaffected = 0;
         boolean isUpdated = false;
         try {
 
             connection = new DBConnection().getConnection();
-            String updatequery = "update ecommerce.user set name =" + user.getName() + "where email=" + user.getEmail() + "";
+            String updatequery =" update ecommerce.user set name ='"+user.getName()+"' where email='"+user.getEmail()+"';";
             Statement statement = connection.createStatement();
             rowaffected = statement.executeUpdate(updatequery);
             if (rowaffected > 0) {
@@ -177,5 +189,8 @@ public class UserDao {
         return isUpdated ;
 
     }
+    
+    
+    
 
 }

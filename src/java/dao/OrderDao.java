@@ -54,7 +54,7 @@ public class OrderDao {
      * @param String
      * @param order
      */
-    public boolean insertOrder( Order order ,String email) throws SQLException {
+    public boolean insertOrder( Order order ,String email){
         Connection connection = null;
         boolean isInserted = false;
         int orderid=order.getId();
@@ -84,7 +84,11 @@ public class OrderDao {
             Logger.getLogger(CategoryDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(OrderDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
 
         }

@@ -8,8 +8,10 @@ public class Category {
     private String name;
     private ArrayList<Product> products;
 
+    public Category() {
 
-    
+    }
+
     public int getId() {
         return id;
     }
