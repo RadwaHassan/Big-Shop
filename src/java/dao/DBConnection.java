@@ -10,16 +10,13 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author AmoOOOnA
- */
+
 public class DBConnection {
     
 static String driver = "com.mysql.jdbc.Driver";
-    static String url = "jdbc:mysql://10.145.234.87:3306/ecommerce";
+    static String url = "jdbc:mysql://localhost:3306/ecommerce";
     static String username = "root";
-    static String password = "root";
+    static String password = "sara2472008";
     private Connection connection;
 
     public DBConnection() {

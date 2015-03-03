@@ -42,18 +42,12 @@
 				 <div class="down-top">		
 						  <select class="in-drop">
 							  <option value="English" class="in-of">English</option>
-							  <option value="Japanese" class="in-of">Japanese</option>
-							  <option value="French" class="in-of">French</option>
-							  <option value="German" class="in-of">German</option>
 							</select>
 					 </div>
 					<div class="down-top top-down">
 						  <select class="in-drop">
-						  
-						  <option value="Dollar" class="in-of">Dollar</option>
-						  <option value="Yen" class="in-of">Yen</option>
-						  <option value="Euro" class="in-of">Euro</option>
-							</select>
+						     <option value="Dollar" class="in-of">Dollar</option>
+						</select>
 					 </div>
 					 <!---->
 					<div class="clearfix"> </div>	
@@ -75,12 +69,12 @@
 					<div class="clearfix"> </div>
 				</div>
 				<div class="header-bottom-right">					
-						<div class="account"><a href="login.html"><span> </span>YOUR ACCOUNT</a></div>
+						<div class="account"><a href="login.jsp"><span> </span>YOUR ACCOUNT</a></div>
 							<ul class="login">
-								<li><a href="login.html"><span> </span>LOGIN</a></li> |
+								<li><a href="login.jsp"><span> </span>LOGIN</a></li> |
 								<li ><a href="register.html">SIGNUP</a></li>
 							</ul>
-						<div class="cart"><a href="#"><span> </span>CART</a></div>
+						<div class="cart"><a href="ShopCartDetails.jsp"><span> </span>CART</a></div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix"> </div>	

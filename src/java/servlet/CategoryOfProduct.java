@@ -9,6 +9,7 @@ import bean.Category;
 import bean.Product;
 import controller.ProductInformationController;
 import controller.ProductManagmentController;
+import dao.CategoryDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -21,22 +22,29 @@ import javax.servlet.http.HttpServletResponse;
 public class CategoryOfProduct extends HttpServlet {
 
     ProductInformationController prodInfocontroller;
-    int categoryid;
+    
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // object from product info controller
         prodInfocontroller = ProductInformationController.getInstance();
+        CategoryDao catdao=CategoryDao.getInstance();
+          ArrayList<Product> products = null;
         
          //define aaraylist of product for specific category
          ArrayList<Category> category = prodInfocontroller.getCategoryWithProduct();
          
+         int  categoryid[]= catdao.getCategoriesIds();
+         int size=catdao.getNumberOfRows();
+         for(int i=0;i<size;i++){
+            products = prodInfocontroller.getProductsForCategory(categoryid[i]);
+            category.get(i).setProducts(products);
+         }
         //get Product to display in home page
-        ArrayList<Product> products = prodInfocontroller.getProductsForCategory(categoryid);
-       //
+       
         request.setAttribute("category", category);
-        request.setAttribute("products", products);
+        //request.setAttribute("products", products);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
         dispatcher.forward(request, response);
