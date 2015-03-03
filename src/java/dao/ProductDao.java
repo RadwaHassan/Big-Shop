@@ -67,6 +67,7 @@ public class ProductDao {
             preparedStatement.setInt(1, code);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                product.setCode(resultSet.getInt("code"));
                 product.setName(resultSet.getString(2));
                 product.setPrice(resultSet.getDouble(3));
 

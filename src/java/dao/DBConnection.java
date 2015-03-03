@@ -16,7 +16,7 @@ public class DBConnection {
 static String driver = "com.mysql.jdbc.Driver";
     static String url = "jdbc:mysql://localhost:3306/ecommerce";
     static String username = "root";
-    static String password = "sara2472008";
+    static String password = "root";
     private Connection connection;
 
     public DBConnection() {
