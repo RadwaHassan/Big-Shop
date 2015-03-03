@@ -17,8 +17,20 @@
         <servlet-class>servlet.CategoryOfProduct</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>servlet.Login</servlet-class>
+        <servlet-name>AdminViewCategories</servlet-name>
+        <servlet-class>servlet.AdminViewCategories</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminViewCategoryProducts</servlet-name>
+        <servlet-class>servlet.AdminViewCategoryProducts</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddNewCategory</servlet-name>
+        <servlet-class>servlet.AddNewCategory</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteCategory</servlet-name>
+        <servlet-class>servlet.DeleteCategory</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>registration</servlet-name>
@@ -45,7 +57,19 @@
         <url-pattern>/HomePage</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
+        <servlet-name>AdminViewCategories</servlet-name>
+        <url-pattern>/AdminViewCategories</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminViewCategoryProducts</servlet-name>
+        <url-pattern>/AdminViewCategoryProducts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddNewCategory</servlet-name>
+        <url-pattern>/AddNewCategory</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteCategory</servlet-name>
+        <url-pattern>/DeleteCategory</url-pattern>
     </servlet-mapping>
 </web-app>
