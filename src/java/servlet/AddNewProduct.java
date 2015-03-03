@@ -43,7 +43,7 @@ public class AddNewProduct extends HttpServlet {
         request.setAttribute("categoryName", request.getParameter("categoryName"));
         
         // forward request to AddNewProduct.jsp
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddNewProduct.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AddNewProduct.jsp");
         dispatcher.forward(request, response);
         
     }
@@ -65,7 +65,7 @@ public class AddNewProduct extends HttpServlet {
         session.removeAttribute("product");
         
         // send redirect to Categories
-        response.sendRedirect("/E_Commerce/AdminViewCategories");
+        response.sendRedirect("/E_Commerce/admin/AdminViewCategories");
         
     }
 

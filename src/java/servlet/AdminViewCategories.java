@@ -39,7 +39,7 @@ public class AdminViewCategories extends HttpServlet {
         request.setAttribute("categories", categories);
         
         // forward request to AdminViewCategories.jsp
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AdminViewCategories.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminViewCategories.jsp");
         dispatcher.forward(request, response);
     }
 

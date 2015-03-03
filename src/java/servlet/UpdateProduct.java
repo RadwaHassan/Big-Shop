@@ -9,7 +9,6 @@ import bean.Product;
 import controller.ProductInformationController;
 import controller.ProductManagmentController;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -54,7 +53,7 @@ public class UpdateProduct extends HttpServlet {
         request.setAttribute("product", product);
         
         // forward request to UpdateProduct.jsp
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/UpdateProduct.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/UpdateProduct.jsp");
         dispatcher.forward(request, response);
         
     }
@@ -75,7 +74,7 @@ public class UpdateProduct extends HttpServlet {
         productManagmentController.updateProduct(product);
         
         // send redirect to Categories
-        response.sendRedirect("/E_Commerce/AdminViewCategories");
+        response.sendRedirect("/E_Commerce/admin/AdminViewCategories");
         
     }
 

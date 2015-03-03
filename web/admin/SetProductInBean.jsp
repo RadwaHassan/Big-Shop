@@ -1,8 +1,7 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="bean.Product" %>
-<jsp:setProperty name="updateProduct" property="*" />
-<jsp:forward page="/UpdateProduct" />
+<jsp:setProperty name="product" property="*" />
+<jsp:forward page="/admin/AddNewProduct" />
 
 <!DOCTYPE html>
 <html>

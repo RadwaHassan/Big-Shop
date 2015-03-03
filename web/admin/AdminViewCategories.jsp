@@ -16,16 +16,16 @@
         <title>Categories</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="css/sb-admin.css" rel="stylesheet">
+        <link href="../css/sb-admin.css" rel="stylesheet">
 
         <!-- Morris Charts CSS -->
-        <link href="css/plugins/morris.css" rel="stylesheet">
+        <link href="../css/plugins/morris.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -71,7 +71,7 @@
                             <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li class="active">
-                            <a href="/E_Commerce/AdminViewCategories"><i class="fa fa-fw fa-bar-chart-o"></i> Categories</a>
+                            <a href="/E_Commerce/admin/AdminViewCategories"><i class="fa fa-fw fa-bar-chart-o"></i> Categories</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Customers</a>
@@ -104,7 +104,7 @@
 
                     <div class="row">
 
-                        <a href="/E_Commerce/AddNewCategory" class="btn btn-sm btn-success" style="margin-left: 15px; margin-bottom: 20px;"><span class="fa fa-plus" style="margin-right: 5px"></span>Add New Category</a>
+                        <a href="/E_Commerce/admin/AddNewCategory" class="btn btn-sm btn-success" style="margin-left: 15px; margin-bottom: 20px;"><span class="fa fa-plus" style="margin-right: 5px"></span>Add New Category</a>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
@@ -118,8 +118,8 @@
                                     <c:forEach items="${categories}" var="cat">
                                         <tr>
                                             <td>${cat.id}</td>
-                                            <td><a href="/E_Commerce/AdminViewCategoryProducts?categoryId=${cat.id}&categoryName=${cat.name}" >${cat.name}</a></td>
-                                            <td><a href="/E_Commerce/DeleteCategory?categoryId=${cat.id}"><span class="fa fa-remove" style="color: red"></span></a></td>
+                                            <td><a href="/E_Commerce/admin/AdminViewCategoryProducts?categoryId=${cat.id}&categoryName=${cat.name}" >${cat.name}</a></td>
+                                            <td><a href="/E_Commerce/admin/DeleteCategory?categoryId=${cat.id}"><span class="fa fa-remove" style="color: red"></span></a></td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>

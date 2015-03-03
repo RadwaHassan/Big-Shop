@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>filters.AdminFilter</filter-class>
+    </filter>
     <servlet>
         <servlet-name>registration</servlet-name>
         <servlet-class>servlet.registration</servlet-class>
@@ -70,30 +74,30 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminViewCategories</servlet-name>
-        <url-pattern>/AdminViewCategories</url-pattern>
+        <url-pattern>/admin/AdminViewCategories</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminViewCategoryProducts</servlet-name>
-        <url-pattern>/AdminViewCategoryProducts</url-pattern>
+        <url-pattern>/admin/AdminViewCategoryProducts</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddNewCategory</servlet-name>
-        <url-pattern>/AddNewCategory</url-pattern>
+        <url-pattern>/admin/AddNewCategory</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteCategory</servlet-name>
-        <url-pattern>/DeleteCategory</url-pattern>
+        <url-pattern>/admin/DeleteCategory</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddNewProduct</servlet-name>
-        <url-pattern>/AddNewProduct</url-pattern>
+        <url-pattern>/admin/AddNewProduct</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>deleteProduct</servlet-name>
-        <url-pattern>/DeleteProduct</url-pattern>
+        <url-pattern>/admin/DeleteProduct</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateProduct</servlet-name>
-        <url-pattern>/UpdateProduct</url-pattern>
+        <url-pattern>/admin/UpdateProduct</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -33,7 +33,7 @@ public class AddNewCategory extends HttpServlet {
             throws ServletException, IOException {
         
         // forward request to AddNewCategory.jsp
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddNewCategory.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AddNewCategory.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -44,11 +44,15 @@ public class AddNewCategory extends HttpServlet {
         // get category name parameter
         String catName = request.getParameter("name");
         
+        if(!catName.matches("[a-zA-Z1-9]+")){
+            response.sendRedirect("/E_Commerce/admin/AddNewCategory");
+            return;
+        }
         // add category
         productManagmentController.addNewCategory(catName);
         
         // send redirect to AdminViewCategories
-        response.sendRedirect("/E_Commerce/AdminViewCategories");
+        response.sendRedirect("/E_Commerce/admin/AdminViewCategories");
         
     }
 

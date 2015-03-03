@@ -41,7 +41,7 @@ public class DeleteCategory extends HttpServlet {
         productManagmentController.deleteCategory(categoryId);
         
         // send redirect to AdminViewCategories
-        response.sendRedirect("/E_Commerce/AdminViewCategories");
+        response.sendRedirect("/E_Commerce/admin/AdminViewCategories");
     }
 
  

@@ -1,9 +1,6 @@
 
-<%@page import="sun.net.www.content.audio.x_aiff"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="bean.Product" %>
-<jsp:useBean id="updateProduct" scope="session" class="bean.Product"/>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,19 +13,19 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Update Product</title>
+        <title>Add New Category</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="css/sb-admin.css" rel="stylesheet">
+        <link href="../css/sb-admin.css" rel="stylesheet">
 
         <!-- Morris Charts CSS -->
-        <link href="css/plugins/morris.css" rel="stylesheet">
+        <link href="../css/plugins/morris.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -42,7 +39,7 @@
     <body>
 
         <div id="wrapper">
-            
+
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -74,7 +71,7 @@
                             <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                         </li>
                         <li class="active">
-                            <a href="/E_Commerce/AdminViewCategories"><i class="fa fa-fw fa-bar-chart-o"></i> Categories</a>
+                            <a href="/E_Commerce/admin/AdminViewCategories"><i class="fa fa-fw fa-bar-chart-o"></i> Categories</a>
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-fw fa-table"></i> Customers</a>
@@ -93,60 +90,32 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Update Product 
+                                Add New Category 
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
                                     <i class="fa fa-shopping-cart"></i> Categories
                                 </li>
-                                <li>
-                                    <i class="fa fa-plus"></i>  Products
-                                </li>
                                 <li class="active">
-                                    <i class="fa fa-plus"></i>  Update Product
+                                    <i class="fa fa-plus"></i>  Add New Category
                                 </li>
                             </ol>
                         </div>
                     </div>
 
                     <!-- /.row -->
-                    
+
                     <div class="row">
 
                         <div class="col-lg-6">
-                            <form action="UpdateProductBean.jsp" role="form" method="POST" id="procutform">
+                            <form action="/E_Commerce/admin/AddNewCategory" role="form" method="POST">
 
                                 <div class="form-group">
-                                    <label>Product Name</label>
-                                    <input class="form-control" name="name" value="${product.name}" style="margin-bottom: 20px">
+                                    <label>Category Name</label>
+                                    <input class="form-control" name="name" style="margin-bottom: 20px">
+                                    <input type="submit" value="Add Category" class="btn btn-default" />
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Price</label>
-                                    <input class="form-control" name="price" value="${product.price}" style="margin-bottom: 20px">
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label>Quantity</label>
-                                    <input class="form-control"  name="qty" value="${product.qty}" style="margin-bottom: 20px">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Product Image</label>
-                                    <input type="file" name="imagePath" value="${product.imagePath}">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Product Description</label>
-                                    <textarea rows="3" class="form-control" name="description" form="procutform">${product.description}</textarea>
-                                </div>
-                                 
-                                
-                                <div class="form-group">
-                                     <input type="text" hidden="hidden" name="code" value="${product.code}" />
-                                    <input type="submit" value="Update Product" class="btn btn-default" />
-                                </div>
-                                
                             </form>
                         </div>
                     </div>

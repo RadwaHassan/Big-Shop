@@ -56,7 +56,7 @@ public class AdminViewCategoryProducts extends HttpServlet {
         request.setAttribute("categoryId", categoryId);
         
         // forward request to AdminCategoryProducts.jsp
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AdminCategoryProducts.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AdminCategoryProducts.jsp");
         dispatcher.forward(request, response);
     }
 

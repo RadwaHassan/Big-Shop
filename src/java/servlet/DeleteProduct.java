@@ -39,7 +39,7 @@ public class DeleteProduct extends HttpServlet {
         productManagmentController.deleteProduct(productId);
         
         // send redirect to AdminViewCategories
-        response.sendRedirect("/E_Commerce/AdminViewCategories");
+        response.sendRedirect("/E_Commerce/admin/AdminViewCategories");
     }
 
 }
