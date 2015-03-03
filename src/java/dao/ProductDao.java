@@ -27,7 +27,7 @@ public class ProductDao {
      *
      * @param code
      */
-    public boolean deleteProduct(int code) throws SQLException {
+    public boolean deleteProduct(int code){
 
         Connection connection = null;
         boolean isDeleted = false;
@@ -43,9 +43,15 @@ public class ProductDao {
                 isDeleted = false;
             }
 
+        } catch (SQLException ex) {
+            Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
 
@@ -67,6 +73,7 @@ public class ProductDao {
             preparedStatement.setInt(1, code);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+                product.setCode(code);
                 product.setName(resultSet.getString(2));
                 product.setPrice(resultSet.getDouble(3));
 
@@ -191,14 +198,14 @@ public class ProductDao {
 
             connection = new DBConnection().getConnection();
 
-            PreparedStatement stmnt = connection.prepareStatement("INSERT INTO product (code,name,price,quantity,image,description,cat_id) VALUES (?,?,?,?,?,?,?)");
-            stmnt.setInt(1, product.getCode());
-            stmnt.setString(2, product.getName());
-            stmnt.setDouble(3, product.getPrice());
-            stmnt.setInt(4, product.getQty());
-            stmnt.setString(5, product.getImagePath());
-            stmnt.setString(6, product.getDescription());
-            stmnt.setInt(7, product.getCatId());
+            PreparedStatement stmnt = connection.prepareStatement("INSERT INTO product (name,price,quantity,image,description,cat_id) VALUES (?,?,?,?,?,?)");
+            //stmnt.setInt(1, product.getCode());
+            stmnt.setString(1, product.getName());
+            stmnt.setDouble(2, product.getPrice());
+            stmnt.setInt(3, product.getQty());
+            stmnt.setString(4, product.getImagePath());
+            stmnt.setString(5, product.getDescription());
+            stmnt.setInt(6, product.getCatId());
 
             rowaffected = stmnt.executeUpdate();
 

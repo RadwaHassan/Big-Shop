@@ -21,7 +21,10 @@ public class ProductManagmentController {
 	 * @param product
 	 */
 	public boolean addNewProduct(Product product){
-		return false;
+		
+            boolean inserted = productDao.insertProduct(product);
+            
+            return inserted;
 	}
 
 	public static ProductManagmentController getInstance(){
@@ -42,6 +45,22 @@ public class ProductManagmentController {
             boolean deleted = categoryDao.deleteCategory(id);
             
             return deleted;
+        }
+        
+        public boolean deleteProduct(int code){
+            
+            //delete product
+            boolean deleted = productDao.deleteProduct(code);
+            
+            return deleted;
+        }
+        
+        public boolean updateProduct(Product product){
+            
+            // update product
+            boolean updated = productDao.updateProduct(product);
+            
+            return updated;
         }
 
 }

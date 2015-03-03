@@ -1,7 +1,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<c:set var="counter" value="0" />
 <!DOCTYPE html>
 <html lang="en">
 
@@ -107,7 +107,7 @@
 
                     <div class="row">
 
-                        <a href="" class="btn btn-sm btn-success" style="margin-left: 15px; margin-bottom: 20px;"><span class="fa fa-plus" style="margin-right: 5px"></span>Add New Product</a>
+                        <a href="/E_Commerce/AddNewProduct?categoryId=${categoryId}&categoryName=${categoryName}" class="btn btn-sm btn-success" style="margin-left: 15px; margin-bottom: 20px;"><span class="fa fa-plus" style="margin-right: 5px"></span>Add New Product</a>
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
@@ -122,12 +122,13 @@
                                 <tbody>
                                     <c:forEach items="${products}" var="product">
                                         <tr>
-                                            <td>${product.code}</td>
-                                            <td><a href="" >${product.name}</a></td>
+                                            <td>${counter = counter+1}</td>
+                                            <td><a href="/E_Commerce/UpdateProduct?productCode=${product.code}">${product.name}</a></td>
                                             <td>$${product.price}</td>
                                             <td>${product.qty}</td>
-                                            <td><a href=""><span class="fa fa-remove" style="color: red"></span></a></td>
+                                            <td><a href="/E_Commerce/DeleteProduct?productId=${product.code}"><span class="fa fa-remove" style="color: red"></span></a></td>
                                         </tr>
+                                        
                                     </c:forEach>
                                 </tbody>
                             </table>
