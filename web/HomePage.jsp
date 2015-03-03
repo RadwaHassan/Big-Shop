@@ -23,6 +23,7 @@
     </head>
     <!--header-->
     <jsp:include page="Header.jsp" />
+	
     <div class="container">
         <div class="shoes-grid">
             <a href="single.html">
@@ -124,11 +125,13 @@
                     </div>
                 </a>
             </div>
+			<!--
             <div class="products">
                 <h5 class="latest-product">LATEST PRODUCTS</h5>	
                 <a class="view-all" href="product.html">VIEW ALL<span> </span></a> 		     
             </div>
             <div class="product-left">
+			
                 <div class="col-md-4 chain-grid">
                     <a href="single.html"><img class="img-responsive chain" src="images/ch.jpg" alt=" " /></a>
                     <span class="star"> </span>
@@ -211,7 +214,7 @@
                     </div>
                 </div>
                 <div class="clearfix"> </div>
-            </div>
+            </div>!-->
 
             <!-- add code product here!-->  
 
@@ -228,12 +231,12 @@
             
             <div class="product-left">
    <!--for each picture !-->
-            <c:forEach items="${products}" var ="row" begin="1" end="3">
+            <c:forEach items="${category.products}" var ="row" begin="1" end="3">
                 <div class="col-md-4 chain-grid">
-                    <a href="http://localhost:8090/E_Commerce/ProductDetails?productid=${row.code}"><img class="img-responsive chain" src="${row.imagePath}" alt=" " /></a>
+                    <a href="E_Commerce/ProductDetails?productid=${row.code}"><img class="img-responsive chain" src="${row.imagePath}" alt=" " /></a>
                     <span class="star"> </span>
                     <div class="grid-chain-bottom">
-                        <h6><a href="http://localhost:8090/E_Commerce/ProductDetails?productid=${row.code}">${row.name}</a></h6>
+                        <h6><a href="/E_Commerce/ProductDetails?productid=${row.code}">${row.name}</a></h6>
                         <div class="star-price">
                             <div class="dolor-grid"> 
                                 <span class="actual">${row.price}</span>
@@ -250,14 +253,15 @@
                                     <label for="rating-input-1-1" class="rating-star"> </label>
                                 </span>
                             </div>
-                            <a class="now-get get-cart" href="http://localhost:8090/E_Commerce/ShoppingCartDetailsServlet?productid=${row.code}">ADD TO CART</a> 
+                            <a class="now-get get-cart" href="E_Commerce/ShoppingCartDetailsServlet?productid=${row.code}">ADD TO CART</a> 
                             <div class="clearfix"> </div>
                         </div>
                     </div>
                 </div>
             </c:forEach>
-                <div class="col-md-4 chain-grid">
-                    <a href="single.html"><img class="img-responsive chain" src="images/bottle.jpg" alt=" " /></a>
+			
+               <!-- <div class="col-md-4 chain-grid">
+                    <a href="ProductDetails.jsp"><img class="img-responsive chain" src="images/bottle.jpg" alt=" " /></a>
                     <span class="star"> </span>
                     <div class="grid-chain-bottom">
                         <h6><a href="single.html">Lorem ipsum dolor</a></h6>
@@ -287,10 +291,10 @@
 
 
                 <div class="col-md-4 chain-grid grid-top-chain">
-                    <a href="single.html"><img class="img-responsive chain" src="images/baa.jpg" alt=" " /></a>
+                    <a href="ProductDetails.jsp"><img class="img-responsive chain" src="images/baa.jpg" alt=" " /></a>
                     <span class="star"> </span>
                     <div class="grid-chain-bottom">
-                        <h6><a href="single.html">Lorem ipsum dolor</a></h6>
+                        <h6><a href="ProductDetails.jsp">Lorem ipsum dolor</a></h6>
                         <div class="star-price">
                             <div class="dolor-grid"> 
                                 <span class="actual">300$</span>
@@ -316,18 +320,19 @@
                 <div class="clearfix"> </div>
             </div>
             <div class="clearfix"> </div>
-        </div>   
+        </div>  !-->
+		
         <div class="sub-cate">
             <div class=" top-nav rsidebar span_1_of_left">
                 <h3 class="cate">CATEGORIES</h3>
-                <!--Add Code !-->                
+				
+				
+				
+ <!--Add Code categories !-->                
                 <ul class="menu">
                     <c:forEach items="${categories}" var ="row" >
-
-                        
-                        <li class="item1"><a href="/HomePage?${row.id}">${row.name}<img class="arrow-img" src="images/arrow1.png" alt=""> </a> </li>
-                            
-
+                        <li class="item1"><a href="/HomePage?${row.id}"><a href= "/E_Commerce/ProductDetails?categoryid=${row.code}">"> ${row.name}<img class="arrow-img" src="images/arrow1.png" alt=""></a> </a>
+						</li>
                     </c:forEach>
                     
                 </ul>

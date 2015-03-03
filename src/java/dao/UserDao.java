@@ -63,7 +63,7 @@ public class UserDao {
      * @param email
      * @return
      */
-    public User findUser(String email) {
+    public User findUser(String email) throws SQLException {
         Connection connection = null;
         User user = new User();;
         try {
@@ -75,12 +75,16 @@ public class UserDao {
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
 
-                user.setBirthDate(resultSet.getString(2));
-                user.setName(resultSet.getString(3));
-                user.setAddress(resultSet.getString(4));
-                user.setJob(resultSet.getString(5));
-                user.setRole(resultSet.getInt(6));
-                user.setStatus(resultSet.getInt(7));
+                user.setEmail(resultSet.getString("email"));
+                user.setCredit(resultSet.getInt("credit"));
+                user.setPassword(resultSet.getString("user_password"));
+                user.setBirthDate(resultSet.getString("userbirthdate"));
+                user.setName(resultSet.getString("name"));
+                user.setJob(resultSet.getString("job"));
+                user.setRole(resultSet.getInt("role"));
+                user.setStatus(resultSet.getInt("status"));
+                user.setAddress(resultSet.getString("address"));
+
 
             }
             resultSet.close();
@@ -90,17 +94,13 @@ public class UserDao {
             ex.printStackTrace();
         } finally {
             if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
-                    Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                connection.close();
 
             }
         }
         return user;
     }
-
+    
     public static UserDao getInstance() {
         return INSTANCE;
     }
