@@ -8,7 +8,7 @@ public class AuthenticationController {
 	private static AuthenticationController INSTANCE = new AuthenticationController();
 	private UserDao userDao;
 	
-	private AuthenticationController(){
+	public AuthenticationController(){
             
             //get UserDao instance
             userDao = UserDao.getInstance();
@@ -23,16 +23,22 @@ public class AuthenticationController {
 	 * @param username
 	 * @param Password
 	 */
-	public User signIn(String username, String Password){
-		return null;
+	public User signIn(String email){
+	   UserDao userdao=UserDao .getInstance();
+           User user=userdao.findUser(email);
+           return user;
+           
 	}
 
 	/**
 	 * 
 	 * @param username
 	 */
-	public boolean signOut(String username){
-		return false;
+	public boolean signOut(String email,int status){
+		UserDao userDao=UserDao.getInstance();
+               boolean isSignedOut= userDao.changeStatus(email, status);
+               return isSignedOut;
+                
 	}
 
 }
