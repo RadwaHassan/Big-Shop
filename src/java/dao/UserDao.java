@@ -63,7 +63,7 @@ public class UserDao {
      * @param email
      * @return
      */
-    public User findUser(String email) throws SQLException {
+    public User findUser(String email) {
         Connection connection = null;
         User user = new User();;
         try {
@@ -94,7 +94,11 @@ public class UserDao {
             ex.printStackTrace();
         } finally {
             if (connection != null) {
-                connection.close();
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
             }
         }

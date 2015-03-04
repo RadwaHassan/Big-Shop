@@ -39,16 +39,8 @@
 					<div class="clearfix"> </div>
 				</div>
 				<div class="top-header-right">
-				 <div class="down-top">		
-						  <select class="in-drop">
-							  <option value="English" class="in-of">English</option>
-							</select>
-					 </div>
-					<div class="down-top top-down">
-						  <select class="in-drop">
-						     <option value="Dollar" class="in-of">Dollar</option>
-						</select>
-					 </div>
+				
+					
 					 <!---->
 					<div class="clearfix"> </div>	
 				</div>
@@ -61,11 +53,7 @@
 					<div class="logo">
 						<a href="index.html"><img src="images/logo.png" alt=" " /></a>
 					</div>
-					<div class="search">
-						<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" >
-						<input type="submit"  value="SEARCH">
-
-					</div>
+					
 					<div class="clearfix"> </div>
 				</div>
 				<div class="header-bottom-right">					

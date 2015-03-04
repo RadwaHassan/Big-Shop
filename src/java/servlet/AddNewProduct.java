@@ -59,6 +59,8 @@ public class AddNewProduct extends HttpServlet {
         // get product attribute from session
         Product product =(Product)session.getAttribute("product");
   
+        product.setImagePath("images/"+product.getImagePath());
+        
         // add new product
         productManagmentController.addNewProduct(product);
         

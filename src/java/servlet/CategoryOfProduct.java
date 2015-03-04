@@ -22,31 +22,35 @@ import javax.servlet.http.HttpServletResponse;
 public class CategoryOfProduct extends HttpServlet {
 
     ProductInformationController prodInfocontroller;
+
+    public CategoryOfProduct() {
+        prodInfocontroller = ProductInformationController.getInstance();
+    }
+    
+    
     
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // object from product info controller
-        prodInfocontroller = ProductInformationController.getInstance();
-        CategoryDao catdao=CategoryDao.getInstance();
-          ArrayList<Product> products = null;
         
-         //define aaraylist of product for specific category
-         ArrayList<Category> category = prodInfocontroller.getCategoryWithProduct();
-         
-         int  categoryid[]= catdao.getCategoriesIds();
-         int size=catdao.getNumberOfRows();
-         for(int i=0;i<size;i++){
-            products = prodInfocontroller.getProductsForCategory(categoryid[i]);
-            category.get(i).setProducts(products);
-         }
-        //get Product to display in home page
+        // get category id parameter
+        String categoryIdString = request.getParameter("categoryId");
+        
+        // parse id string to int
+        int categoryId = Integer.parseInt(categoryIdString);
+        
+        // get products for that category
+        ArrayList<Product> products = prodInfocontroller.getProductsForCategory(categoryId);
+        
+        // add attribute on request
+        request.setAttribute("products", products);
+        
+        ArrayList<Category> categories = prodInfocontroller.getCategories();
        
-        request.setAttribute("category", category);
-        //request.setAttribute("products", products);
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
+        request.setAttribute("categories",categories);
+        
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/CategoryProducts.jsp");
         dispatcher.forward(request, response);
     }
 

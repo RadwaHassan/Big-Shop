@@ -33,17 +33,11 @@ public class ProductInformationController {
         
         //get list of category
         ArrayList<Category> categories = categoryDao.getCategories();
-        
-        // get count of row of category
-        int size = categoryDao.getNumberOfRows();
-        
+       
         //get category with product
-        for (Category category : categories) {
-            int[] catID = catID = categoryDao.getCategoriesIds();
-            for (int i = 0; i < size; i++) {
-                productDao.findProductByCategoryID(catID[i]);
-            }
-
+        for(Category category : categories) {
+           
+            category.setProducts(productDao.getProductsByCategory(category.getId()));
         }
         return categories;
 

@@ -90,7 +90,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			   <div class=" login-right">
 			  	<h3>REGISTERED CUSTOMERS</h3>
 				<p>If you have an account with us, please log in.</p>
-				<form action ="/E_Commerce/Login" method="post">
+				<form action ="/E_Commerce/Login" method="POST">
 				  <div>
 					<span>Email Address<label>*</label></span>
 					<input type="text" name ="email"> 

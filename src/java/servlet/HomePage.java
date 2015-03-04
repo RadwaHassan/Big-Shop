@@ -34,8 +34,8 @@ public class HomePage extends HttpServlet {
             throws ServletException, IOException {
         
        // get arraylist of gategory
-       ArrayList<Category> categories = prodInfocontroller.getCategories();
-      
+       ArrayList<Category> categories = prodInfocontroller.getCategoryWithProduct();
+       
        // set gategorylist on session scope      
         // HttpSession session  = request.getSession(true);
         // session.setAttribute("categories",categories);

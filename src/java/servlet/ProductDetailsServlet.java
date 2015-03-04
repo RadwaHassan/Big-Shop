@@ -5,9 +5,11 @@
  */
 package servlet;
 
+import bean.Category;
 import bean.Product;
 import controller.ProductInformationController;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +24,13 @@ public class ProductDetailsServlet extends HttpServlet {
 
     // Product Information Controller
     private ProductInformationController productInfoController;
+    
+
+    public ProductDetailsServlet() {
+        productInfoController = ProductInformationController.getInstance();
+    }
+    
+    
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -41,6 +50,11 @@ public class ProductDetailsServlet extends HttpServlet {
         
         // add product object on request
         request.setAttribute("product", product);
+        
+         ArrayList<Category> categories = productInfoController.getCategories();
+        
+         request.setAttribute("categories",categories);
+        
         
         // forward request to productDetails.jsp
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ProductDetails.jsp");
