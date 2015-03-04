@@ -37,52 +37,63 @@
         <!--script-->
     </head>
     <body>
-<!--header-->
-	<div class="header">
-		<div class="top-header">
-			<div class="container">
-				<div class="top-header-left">
-					<ul class="support">
-						<li><a href="#"><label> </label></a></li>
-						<li><a href="#">24x7 live<span class="live"> support</span></a></li>
-					</ul>
-					<ul class="support">
-						<li class="van"><a href="#"><label> </label></a></li>
-						<li><a href="#">Free shipping <span class="live">on order over 500</span></a></li>
-					</ul>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="top-header-right">
-				
-					
-					 <!---->
-					<div class="clearfix"> </div>	
-				</div>
-				<div class="clearfix"> </div>		
-			</div>
-		</div>
-		<div class="bottom-header">
-			<div class="container">
-				<div class="header-bottom-left">
-					<div class="logo">
-						<a href="/E_Commerce/HomePage"><img src="images/logo.png" alt=" " /></a>
-					</div>
-					
-					<div class="clearfix"> </div>
-				</div>
-				<div class="header-bottom-right">					
-						<div class="account"><a href="login.jsp"><span> </span>YOUR ACCOUNT</a></div>
-							<ul class="login">
-								<li><a href="login.jsp"><span> </span>LOGIN</a></li> |
-								<li ><a href="register.html">SIGNUP</a></li>
-							</ul>
-						<div class="cart"><a href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?showproducts=true"><span> </span>CART</a></div>
-					<div class="clearfix"> </div>
-				</div>
-				<div class="clearfix"> </div>	
-			</div>
-		</div>
-	</div>
+        <!--header-->
+        <div class="header">
+            <div class="top-header">
+                <div class="container">
+                    <div class="top-header-left">
+                        <ul class="support">
+                            <li><a href="#"><label> </label></a></li>
+                            <li><a href="#">24x7 live<span class="live"> support</span></a></li>
+                        </ul>
+                        <ul class="support">
+                            <li class="van"><a href="#"><label> </label></a></li>
+                            <li><a href="#">Free shipping <span class="live">on order over 500</span></a></li>
+                        </ul>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="top-header-right">
+
+
+                        <!---->
+                        <div class="clearfix"> </div>	
+                    </div>
+                    <div class="clearfix"> </div>		
+                </div>
+            </div>
+            <div class="bottom-header">
+                <div class="container">
+                    <div class="header-bottom-left">
+                        <div class="logo">
+                            <a href="/E_Commerce/HomePage"><img src="images/logo.png" alt=" " /></a>
+                        </div>
+
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="header-bottom-right">
+                        <c:if test="${user.status == '0' || user == null}">
+                            <ul class="login" style="margin-left: 300px">
+                                <li><a href="login.jsp"><span> </span>LOGIN</a></li> |
+                                <li ><a href="register.html">SIGNUP</a></li>
+                            </ul>
+                        </c:if>
+                        
+                        <c:if test="${user.status == '1'}">
+                            <div class="account"><a href="login.jsp"><span> </span>YOUR ACCOUNT</a></div>
+                            <div class="cart"><a href="ShopCartDetails.jsp"><span> </span>CART</a></div>
+                            <div class="close"><a href="/E_Commerce/Logout"><span></span>Logout</a></div>
+                        </c:if>
+                        
+
+                        <div class="clearfix"> </div>
+                    </div>
+                    <div class="clearfix"> </div>	
+                </div>
+            </div>
+        </div
+        
+        
+        
     </body>
 </html>
 

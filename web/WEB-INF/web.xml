@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-        <servlet>
+    <filter>
+        <filter-name>AdminFilter</filter-name>
+        <filter-class>filters.AdminFilter</filter-class>
+    </filter>
+    <servlet>
         <servlet-name>registration</servlet-name>
         <servlet-class>servlet.registration</servlet-class>
     </servlet>
@@ -32,6 +36,30 @@
         <servlet-name>DeleteCategory</servlet-name>
         <servlet-class>servlet.DeleteCategory</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddNewProduct</servlet-name>
+        <servlet-class>servlet.AddNewProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>deleteProduct</servlet-name>
+        <servlet-class>servlet.DeleteProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateProduct</servlet-name>
+        <servlet-class>servlet.UpdateProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>servlet.Login</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>servlet.Logout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>registration</servlet-name>
         <url-pattern>/registration</url-pattern>
@@ -52,43 +80,48 @@
         <servlet-name>HomePage</servlet-name>
         <servlet-class>servlet.HomePage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShoppingCartDetailsServlet</servlet-name>
+        <servlet-class>servlet.ShoppingCartDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShoppingCartDetailsServlet</servlet-name>
+        <url-pattern>/ShoppingCartDetailsServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomePage</servlet-name>
         <url-pattern>/HomePage</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminViewCategories</servlet-name>
-        <url-pattern>/AdminViewCategories</url-pattern>
+        <url-pattern>/admin/AdminViewCategories</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AdminViewCategoryProducts</servlet-name>
-        <url-pattern>/AdminViewCategoryProducts</url-pattern>
+        <url-pattern>/admin/AdminViewCategoryProducts</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddNewCategory</servlet-name>
-        <url-pattern>/AddNewCategory</url-pattern>
+        <url-pattern>/admin/AddNewCategory</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteCategory</servlet-name>
-        <url-pattern>/DeleteCategory</url-pattern>
+        <url-pattern>/admin/DeleteCategory</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Login</servlet-name>
-        <servlet-class>servlet.Login</servlet-class>
-    </servlet>
     <servlet-mapping>
-        <servlet-name>Login</servlet-name>
-        <url-pattern>/Login</url-pattern>
+        <servlet-name>AddNewProduct</servlet-name>
+        <url-pattern>/admin/AddNewProduct</url-pattern>
     </servlet-mapping>
-    <servlet>   
-        <servlet-name>ShoppingCartDetailsServlet</servlet-name>
-        <servlet-class>servlet.ShoppingCartDetailsServlet</servlet-class>
-    </servlet>
-
-
-<servlet-mapping>
-        <servlet-name>ShoppingCartDetailsServlet</servlet-name>
-        <url-pattern>/ShoppingCartDetailsServlet</url-pattern>
+    <servlet-mapping>
+        <servlet-name>deleteProduct</servlet-name>
+        <url-pattern>/admin/DeleteProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProduct</servlet-name>
+        <url-pattern>/admin/UpdateProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
     </servlet-mapping>
 </web-app>
-
