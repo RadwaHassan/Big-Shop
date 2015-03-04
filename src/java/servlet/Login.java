@@ -18,6 +18,8 @@ public class Login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        RequestDispatcher req = request.getRequestDispatcher("login.jsp");
+        req.include(request, response);
 ////            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
 ////            dispatcher.forward(request, response);   
     }
@@ -32,17 +34,15 @@ public class Login extends HttpServlet {
         User user = controller.signIn(request.getParameter("email"));
         
         if (request.getParameter("email").equals("") || request.getParameter("password").equals("")) {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/HomePage");
-            dispatcher.forward(request, response);
+        
+            response.sendRedirect("HomePage");
         } else if (user != null) {
-            session = request.getSession();
+            session = request.getSession(true);
             session.setAttribute("user", user);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/HomePage");
-            dispatcher.forward(request, response);
+            response.sendRedirect("HomePage");
             
         } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/Registration.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("Registration.jsp");
         }
 
     }
