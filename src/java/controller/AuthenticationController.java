@@ -23,17 +23,11 @@ public class AuthenticationController {
 	 * @param username
 	 * @param Password
 	 */
-	public User signIn(String email){
+        
+	public boolean signIn(String email,String password){
 	   UserDao userdao=UserDao .getInstance();
-           User user=userdao.findUser(email);
-           
-           if(user == null){
-               return null;
-           }
-           
-           user.setStatus(1);
-           userDao.changeStatus(email, 1);
-           return user;
+           boolean isFound=userdao.isUserFound(email,password);
+           return isFound;
            
 	}
 

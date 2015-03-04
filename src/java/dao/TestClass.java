@@ -19,23 +19,20 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author AmoOOOnA
  */
 public class TestClass {
-    
-     
-   
-       public boolean updateUser(User user) throws SQLException {
+
+    public boolean updateUser(User user) throws SQLException {
         Connection connection = null;
         int rowaffected = 0;
         boolean isUpdated = false;
         try {
 
             connection = new DBConnection().getConnection();
-            String updatequery =" update ecommerce.user set name ='"+user.getName()+"' where email='"+user.getEmail()+"';";
+            String updatequery = " update ecommerce.user set name ='" + user.getName() + "' where email='" + user.getEmail() + "';";
             Statement statement = connection.createStatement();
             rowaffected = statement.executeUpdate(updatequery);
             if (rowaffected > 0) {
@@ -47,18 +44,16 @@ public class TestClass {
             statement.close();
         } catch (SQLException ex) {
             Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally{
-            if (connection !=null) {
+        } finally {
+            if (connection != null) {
                 connection.close();
             }
         }
-        return isUpdated ;
+        return isUpdated;
 
     }
-       
-       
-       public User findUser(String email) {
+
+    public User findUser(String email) {
         Connection connection = null;
         User user = new User();
         try {
@@ -76,7 +71,7 @@ public class TestClass {
                 user.setJob(resultSet.getString(5));
                 user.setRole(resultSet.getInt(6));
                 user.setStatus(resultSet.getInt(7));
-      
+
             }
             resultSet.close();
             preparedStatement.close();
@@ -96,16 +91,14 @@ public class TestClass {
         return user;
     }
 
-    
-       
-        public boolean update(Product product) {
-      Connection connection = null;
+    public boolean update(Product product) {
+        Connection connection = null;
         int rowaffected = 0;
         boolean isUpdated = false;
         try {
 
             connection = new DBConnection().getConnection();
-            String updatequery =" update product set name='"+product.getName()+"'  , price="+product.getPrice()+ ",quantity="+product.getQty()+ ", image='"+product.getImagePath()+"' ,description='"+product.getDescription()+"'  where code="+product.getCode()+";";
+            String updatequery = " update product set name='" + product.getName() + "'  , price=" + product.getPrice() + ",quantity=" + product.getQty() + ", image='" + product.getImagePath() + "' ,description='" + product.getDescription() + "'  where code=" + product.getCode() + ";";
             Statement statement = connection.createStatement();
             rowaffected = statement.executeUpdate(updatequery);
             if (rowaffected > 0) {
@@ -117,9 +110,8 @@ public class TestClass {
             statement.close();
         } catch (SQLException ex) {
             Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally{
-            if (connection !=null) {
+        } finally {
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (SQLException ex) {
@@ -127,16 +119,14 @@ public class TestClass {
                 }
             }
         }
-        return isUpdated ;
+        return isUpdated;
 
     }
 
-    
-    
     public static void main(String[] args) {
 
-        Product product =new Product();
-        TestClass testClass=new TestClass();
+        Product product = new Product();
+        TestClass testClass = new TestClass();
         product.setCode(2);
         product.setName("laptop");
         product.setPrice(3000);
@@ -144,15 +134,14 @@ public class TestClass {
         product.setCatId(4);
         product.setImagePath("kj");
         product.setDescription("ghjk");
-        OrderProduct orderProduct=new OrderProduct();
+        OrderProduct orderProduct = new OrderProduct();
         orderProduct.setOrder(1);
         orderProduct.setProductCode(2);
         orderProduct.setQuantity(90);
-        User u=new User();
+        User u = new User();
         u.setName("ahmed");
         u.setEmail("eman@yahoo");
-        System.out.println(""+testClass.findUser("eman@yahoo"));
-        
-        
+        System.out.println("" + testClass.findUser("eman@yahoo"));
+
     }
 }

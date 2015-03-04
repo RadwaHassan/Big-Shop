@@ -21,8 +21,13 @@ public class UserProfileController {
 	 * @param user
 	 */
 	public boolean signUP(User user){
-            userDao.insertUser(user);
-		return false;
+            
+            boolean flage=userDao.insertUser(user);
+           
+           
+            System.out.println("flage is" + flage);
+		return  flage;
+           
 	}
 
 	/**
@@ -31,7 +36,8 @@ public class UserProfileController {
 	 */
 	public boolean updateProfile(User user){
             userDao.updateUser(user);
-		return false;
+		return userDao.updateUser(user);
 	}
+       
 
 }
