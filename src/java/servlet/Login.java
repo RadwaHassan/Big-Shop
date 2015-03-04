@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
 
         if (request.getParameter("email").equals("") || request.getParameter("password").equals("")) {
 
-            response.sendRedirect("HomePage");
+            response.sendRedirect("/E_Commerce/login.jsp");
 
         } else if (user != null) {
             
