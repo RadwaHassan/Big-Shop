@@ -60,8 +60,8 @@ public class ShoppingCartDetailsServlet extends HttpServlet {
         session = request.getSession(false);
         if (session != null) {
 
-            String userEmail = (String) session.getAttribute("userEmail");
-            user = UserDao.getInstance().findUser(userEmail);
+            User user = (User) session.getAttribute("user");
+            //user = UserDao.getInstance().findUser(userEmail);
             if (productid != null && order != null) {
                 product = productDao.findProduct(Integer.parseInt(productid));
                 order = shopCartController.createOrder(product, user);

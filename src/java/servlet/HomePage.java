@@ -3,6 +3,7 @@ package servlet;
 
 import bean.Category;
 import bean.Product;
+import bean.User;
 import controller.ProductInformationController;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,7 +33,8 @@ public class HomePage extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        HttpSession session = request.getSession(false);
+      //  System.out.println("home page doGET method"+ ((User)session.getAttribute("user")).getEmail());
        // get arraylist of gategory
        ArrayList<Category> categories = prodInfocontroller.getCategoryWithProduct();
        
@@ -43,6 +45,13 @@ public class HomePage extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage.jsp");
         dispatcher.forward(request, response);
   
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("home page do post method");
+       // doGet(req, resp);
     }
 
    

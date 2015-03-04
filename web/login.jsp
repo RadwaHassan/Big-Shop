@@ -90,14 +90,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			   <div class=" login-right">
 			  	<h3>REGISTERED CUSTOMERS</h3>
 				<p>If you have an account with us, please log in.</p>
-				<form action ="/E_Commerce/Login" method="POST">
+				<form action ="Login" method="post">
 				  <div>
 					<span>Email Address<label>*</label></span>
 					<input type="text" name ="email"> 
 				  </div>
 				  <div>
 					<span>Password<label>*</label></span>
-					<input type="text" name="password"> 
+					<input type="password" name="password"> 
 				  </div>
 				  <a class="forgot" href="#">Forgot Your Password?</a>
 				  <input type="submit" value="Login">
