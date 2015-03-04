@@ -17,9 +17,7 @@ public class Product {
     public void setCatId(int catId) {
         this.catId = catId;
     }
-    
-    
-    
+
     public int getQty() {
         return qty;
     }
@@ -27,7 +25,6 @@ public class Product {
     public void setQty(int qty) {
         this.qty = qty;
     }
-    
 
     public int getCode() {
         return code;
@@ -69,4 +66,16 @@ public class Product {
         this.price = price;
     }
 
+    public boolean equals(Object obj) {
+        if (obj instanceof Product && ((Product) obj).code == this.code) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public int hashCode() {
+        return 1;
+    }
 }

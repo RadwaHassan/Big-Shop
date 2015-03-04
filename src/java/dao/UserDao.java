@@ -65,7 +65,7 @@ public class UserDao {
      */
     public User findUser(String email) {
         Connection connection = null;
-        User user = new User();;
+        User user = new User();
         try {
 
             connection = new DBConnection().getConnection();
@@ -84,7 +84,12 @@ public class UserDao {
                 user.setRole(resultSet.getInt("role"));
                 user.setStatus(resultSet.getInt("status"));
                 user.setAddress(resultSet.getString("address"));
-
+//                user.setBirthDate(resultSet.getString(2));
+//                user.setName(resultSet.getString(3));
+//                user.setAddress(resultSet.getString(4));
+//                user.setJob(resultSet.getString(5));
+//                user.setRole(resultSet.getInt(6));
+//                user.setStatus(resultSet.getInt(7));
 
             }
             resultSet.close();
@@ -104,7 +109,7 @@ public class UserDao {
         }
         return user;
     }
-    
+
     public static UserDao getInstance() {
         return INSTANCE;
     }
