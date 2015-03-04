@@ -48,11 +48,10 @@ public class HomePage extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-       
-             this.doGet(request, response);
-     
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPost(req, resp); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("home page do post method");
+       // doGet(req, resp);
     }
 
    

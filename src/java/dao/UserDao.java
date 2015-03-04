@@ -1,5 +1,6 @@
 package dao;
 
+import bean.Category;
 import bean.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -62,61 +63,15 @@ public class UserDao {
      * @param email
      * @return
      */
-   
-   
-public boolean isUserFound(String email,String password)  {
-        Connection connection = null;
-        User user = new User();
-        boolean isFound=false;
-        try {
-
-            connection = new DBConnection().getConnection();
-            String searchSQL = "select * from ecommerce.user where email=? and ecommerce.user.user_password=?";
-            PreparedStatement preparedStatement = connection.prepareStatement(searchSQL);
-            preparedStatement.setString(1, email);
-            preparedStatement.setString(2,password);
-            
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()) {
-
-               isFound=true;
-
-                
-            }else{isFound=false;}
-            
-            resultSet.close();
-            
-            preparedStatement.close();
-            
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
-                 
-                    Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-        }
-        System.out.println("in Daooooooooooooooooo"+user.getEmail());
-        return isFound;
-    }
-   
-
-public User findUser(String email,String password)  {
+    public User findUser(String email) {
         Connection connection = null;
         User user = new User();
         try {
 
             connection = new DBConnection().getConnection();
-            String searchSQL = "SELECT * FROM ecommerce.user WHERE email= ?  and ecommerce.user.user_password= ?";
+            String searchSQL = "SELECT * FROM ecommerce.user WHERE email= ?";
             PreparedStatement preparedStatement = connection.prepareStatement(searchSQL);
             preparedStatement.setString(1, email);
-            preparedStatement.setString(2,password);
             ResultSet resultSet = preparedStatement.executeQuery();
             
             if(resultSet == null || !resultSet.next()){
@@ -134,14 +89,16 @@ public User findUser(String email,String password)  {
                 user.setRole(resultSet.getInt("role"));
                 user.setStatus(resultSet.getInt("status"));
                 user.setAddress(resultSet.getString("address"));
+//                user.setBirthDate(resultSet.getString(2));
+//                user.setName(resultSet.getString(3));
+//                user.setAddress(resultSet.getString(4));
+//                user.setJob(resultSet.getString(5));
+//                user.setRole(resultSet.getInt(6));
+//                user.setStatus(resultSet.getInt(7));
 
-                
             }
-            
             resultSet.close();
-            
             preparedStatement.close();
-            
 
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -155,9 +112,9 @@ public User findUser(String email,String password)  {
 
             }
         }
-        System.out.println("in Daooooooooooooooooo"+user.getEmail());
         return user;
     }
+
     public static UserDao getInstance() {
         return INSTANCE;
     }
@@ -180,9 +137,9 @@ public User findUser(String email,String password)  {
             stmnt.setString(3, user.getName());
             stmnt.setString(4, user.getAddress());
             stmnt.setString(5, user.getJob());
-            stmnt.setInt(6, 0);
+            stmnt.setInt(6, user.getRole());
             stmnt.setString(7, user.getPassword());
-            stmnt.setInt(8, 0);
+            stmnt.setInt(8, user.getStatus());
           //  stmnt.setDouble(9,user.getCredit());
 
             rowaffected = stmnt.executeUpdate();
