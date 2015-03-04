@@ -27,8 +27,9 @@ public class AuthenticationController {
 	   UserDao userdao=UserDao .getInstance();
            User user=userdao.findUser(email);
            
-           if(user == null)
-               return user;
+           if(user == null){
+               return null;
+           }
            
            user.setStatus(1);
            userDao.changeStatus(email, 1);

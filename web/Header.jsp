@@ -73,14 +73,14 @@
                     <div class="header-bottom-right">
                         <c:if test="${user.status == '0' || user == null}">
                             <ul class="login" style="margin-left: 300px">
-                                <li><a href="login.jsp"><span> </span>LOGIN</a></li> |
-                                <li ><a href="register.html">SIGNUP</a></li>
+                                <li><a href="/E_Commerce/login.jsp"><span> </span>LOGIN</a></li> |
+                                <li ><a href="Registration.jsp">SIGNUP</a></li>
                             </ul>
                         </c:if>
                         
                         <c:if test="${user.status == '1'}">
-                            <div class="account"><a href="login.jsp"><span> </span>YOUR ACCOUNT</a></div>
-                            <div class="cart"><a href="ShopCartDetails.jsp"><span> </span>CART</a></div>
+                            <div class="account"><a href="update.jsp"><span> </span>YOUR ACCOUNT</a></div>
+                            <div class="cart"><a href="/E_Commerce/ShoppingCartDetailsServlet?showproducts=true"><span> </span>CART</a></div>
                             <div class="close"><a href="/E_Commerce/Logout"><span></span>Logout</a></div>
                         </c:if>
                         

@@ -41,7 +41,7 @@
                                         <span class="actual">$${product.price}</span>
 
                                     </div>
-                                    <a class="now-get get-cart" href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?productid=${product.code}">ADD TO CART</a> 
+                                        <c:if test="${user.status == '1'}"><a class="now-get get-cart" href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?productid=${product.code}">ADD TO CART</a> </c:if>
                                     <div class="clearfix"> </div>
                                 </div>
                             </div>

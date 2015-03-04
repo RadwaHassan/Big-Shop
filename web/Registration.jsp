@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="bean.User" %>
-<jsp:useBean id= "user" class="bean.User" scope="session" />
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +25,8 @@
     </head>
     <body>
         <jsp:include page="Header.jsp"/>
-        
+        <jsp:useBean id= "user" class="bean.User" scope="session" />
+        <%@ page import="java.io.*,java.util.*,java.sql.*"%>
         <div class="container"> 
            
                 <div class="register">
@@ -54,11 +55,8 @@
                             <span>Address<label>*</label></span>
                             <input name="address" type="text">
 
-                            <span>Role<label>*</label></span>
-                            <input name="role" type="text">
-
                             <span>Password</span>
-                            <input name="password" type="text">  
+                            <input name="password" type="password"> 
                         </div>
                         <div class="clearfix"> </div>
                         <a class="news-letter" href="#">
@@ -75,7 +73,9 @@
                     </div>
                      </form>
                 </div>
-            <jsp:include page="footer.jsp"/>
+            
+       
+        
            
     </body>
 </html>

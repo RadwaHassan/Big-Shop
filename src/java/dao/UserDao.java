@@ -74,7 +74,7 @@ public class UserDao {
             preparedStatement.setString(1, email);
             ResultSet resultSet = preparedStatement.executeQuery();
             
-            if(!resultSet.next()){
+            if(resultSet == null || !resultSet.next()){
                 return null;
             }
             

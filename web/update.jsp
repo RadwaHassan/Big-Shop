@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="bean.User" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,12 +24,14 @@
 <script src="js/jquery.min.js"></script>
     </head>
     <body>
+        <jsp:useBean id= "user" class="bean.User" scope="session" />
         <jsp:include page="Header.jsp"/>
+        <%@ page import="java.io.*,java.util.*,java.sql.*"%>
        <div class="container"> 
-			         
+	
 		<div class="register">
-		  	  <form> 
-				 <div class="  register-top-grid">
+		  	    <form action="updatebean.jsp" method="POST">	
+                                  <div class="  register-top-grid">
 					<h3>PERSONAL INFORMATION</h3>
 					<div class="mation">
                                            
@@ -49,26 +53,25 @@
                                                   <span>Address<label>*</label></span>
 						 <input name="address" type="text" value="${sessionScope.user.address}">
                                                  
-                                                  <span>Role<label>*</label></span>
-						 <input name="role" type="text" value="${sessionScope.user.role}">
-                                                 
                                                  <span>Password</span>
-                                                 <input name="password" type="text" value="${sessionScope.user.password}">  
+                                                 <input name="password" type="password" value="${sessionScope.user.password}">  
 					</div>
 					 <div class="clearfix"> </div>
 					   <a class="news-letter" href="#">
 						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up</label>
 					   </a>
 					 </div>
-				</form>
+				
 				<div class="clearfix"> </div>
 				<div class="register-but">
-                                    <form action="/E_Commerce/update" method="POST">
+                                   
 					   <input type="submit" value="submit">
 					   <div class="clearfix"> </div>
-				   </form>
+				  
 				</div>
+                                 </form>
 		   </div>
+                                        
 	
         <jsp:include page="footer.jsp"/>
     </body>

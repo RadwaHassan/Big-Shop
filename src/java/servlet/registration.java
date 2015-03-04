@@ -47,7 +47,19 @@ public class registration extends HttpServlet {
      out.println("</html>");
      }
      }*/
+
+    public registration() {
+        
+        usercontroller = UserProfileController.getInstance();
+        
+    }
+
+    public registration(UserProfileController usercontroller) {
+        this.usercontroller = usercontroller;
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -56,6 +68,9 @@ public class registration extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
+    
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -75,11 +90,17 @@ public class registration extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-      // usercontroller.signUP(user);
-        out.println( "user name is " + user.getName());
-        out.println( "user name is " + user.getJob());
+        HttpSession session = request.getSession(false);
+        if (session.getAttribute("user") != null) {
+            User user = (User) session.getAttribute("user");
+            String name = user.getName().toString();
+            usercontroller.signUP(user);
+            response.sendRedirect("/E_Commerce/login.jsp");
+        } else {
+            response.sendRedirect("Registration.jsp");
+        }
+        //out.println( "user name is " + user.getName());
+        //out.println( "user name is " + user.getJob());
     }
 
     /**

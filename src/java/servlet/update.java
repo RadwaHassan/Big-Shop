@@ -31,22 +31,32 @@ public class update extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     UserProfileController usercontroller;
-   /*protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+    /*protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+     throws ServletException, IOException {
+     response.setContentType("text/html;charset=UTF-8");
+     try (PrintWriter out = response.getWriter()) {
            
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet update</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet update at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }*/
+     out.println("<!DOCTYPE html>");
+     out.println("<html>");
+     out.println("<head>");
+     out.println("<title>Servlet update</title>");            
+     out.println("</head>");
+     out.println("<body>");
+     out.println("<h1>Servlet update at " + request.getContextPath() + "</h1>");
+     out.println("</body>");
+     out.println("</html>");
+     }
+     }*/
+
+    public update() {
+
+        usercontroller = UserProfileController.getInstance();
+
+    }
+
+    public update(UserProfileController usercontroller) {
+        this.usercontroller = usercontroller;
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -60,7 +70,7 @@ public class update extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // processRequest(request, response);
+        // processRequest(request, response);
     }
 
     /**
@@ -74,12 +84,20 @@ public class update extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // processRequest(request, response);
+        // processRequest(request, response);
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-       //usercontroller.updateProfile(user);
-        out.println( "user name is " + user.getName());
+
+        HttpSession session = request.getSession(false);
+        if (session.getAttribute("user") != null) {
+            out.println("yes");
+            User user = (User) session.getAttribute("user");
+            String name = user.getName().toString();
+            out.println(name);
+            usercontroller.updateProfile(user);
+            response.sendRedirect("/E_Commerce/HomePage");
+        }
+
+        //out.println( "user name is " + user.getName());
     }
 
     /**

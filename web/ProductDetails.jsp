@@ -65,7 +65,7 @@
                         <h4>${product.name}</h4>
                         <div class="cart-b">
                             <div class="left-n ">$${product.price}</div>
-                            <a class="now-get get-cart-in" href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?productid=${product.code}">ADD TO CART</a> 
+                            <c:if test="${user.status == '1'}"><a class="now-get get-cart" href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?productid=${product.code}">ADD TO CART</a> </c:if>
                             <div class="clearfix"></div>
                         </div>
                     <h6>In stock</h6>
