@@ -15,11 +15,9 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        RequestDispatcher req = request.getRequestDispatcher("/login.jsp");
-        req.include(request, response);
-////            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
-////            dispatcher.forward(request, response);   
+    
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+            dispatcher.forward(request, response);   
     }
 
     @Override
@@ -30,12 +28,12 @@ public class Login extends HttpServlet {
         HttpSession session;
         AuthenticationController controller = new AuthenticationController();
         User user = controller.signIn(request.getParameter("email"));
-
+        
         if (request.getParameter("email").equals("") || request.getParameter("password").equals("")) {
 
             response.sendRedirect("/E_Commerce/login.jsp");
 
-        } else if (user != null) {
+        } else if (user != null && user.getPassword().equals(request.getParameter("password"))) {
             
             user.setStatus(1);
             
@@ -48,7 +46,7 @@ public class Login extends HttpServlet {
                 response.sendRedirect("/E_Commerce/admin/AdminViewCategories");
             }
         } else {
-            response.sendRedirect("Registration.jsp");
+            response.sendRedirect("/E_Commerce/login.jsp");
         }
 
     }
