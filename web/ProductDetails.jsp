@@ -65,7 +65,7 @@
                         <h4>${product.name}</h4>
                         <div class="cart-b">
                             <div class="left-n ">$${product.price}</div>
-                            <a class="now-get get-cart-in" href="#">ADD TO CART</a> 
+                            <a class="now-get get-cart-in" href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?productid=${product.code}">ADD TO CART</a> 
                             <div class="clearfix"></div>
                         </div>
                     <h6>In stock</h6>

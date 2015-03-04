@@ -49,7 +49,7 @@
         <servlet-name>UpdateProduct</servlet-name>
         <servlet-class>servlet.UpdateProduct</servlet-class>
     </servlet>
-      <servlet>
+    <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>servlet.Login</servlet-class>
     </servlet>
@@ -112,4 +112,14 @@
         <url-pattern>/admin/UpdateProduct</url-pattern>
     </servlet-mapping>
  
+    <servlet>   
+        <servlet-name>ShoppingCartDetailsServlet</servlet-name>
+        <servlet-class>servlet.ShoppingCartDetailsServlet</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>ShoppingCartDetailsServlet</servlet-name>
+        <url-pattern>/ShoppingCartDetailsServlet</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -66,11 +66,10 @@ public class ShoppingCartDetailsServlet extends HttpServlet {
                 product = productDao.findProduct(Integer.parseInt(productid));
                 order = shopCartController.createOrder(product, user);
                 session.setAttribute("order", order);
-                
+
                 //get total price
                 if (order != null) {
-                    
-                    
+
                     if (orderProductsArray == null) {
                         orderProductsArray = new ArrayList<OrderProduct>();
                     }
@@ -87,10 +86,25 @@ public class ShoppingCartDetailsServlet extends HttpServlet {
                         total = total + productPrice;
                         session.setAttribute("total", total);
                     }
+                    RequestDispatcher req = request.getRequestDispatcher("HomePage");
+                    req.include(request, response);
                 }
             }
-//            RequestDispatcher req = request.getRequestDispatcher("Test");
-//            req.include(request, response);
+            if (deleteProduct != null && order != null) {
+                Product product = productDao.findProduct(Integer.parseInt(deleteProduct));
+                Order order = (Order) session.getAttribute("order");
+                ArrayList<OrderProduct> orderProducts = order.getProducts();
+                for (int i = 0; i < orderProducts.size(); i++) {
+                    if (Integer.parseInt(deleteProduct) == orderProducts.get(i).getProductCode()) {
+                        orderProducts.remove(i);
+                        total = (double) session.getAttribute("total");
+                        total = total - product.getPrice();
+                        session.setAttribute("total", total);
+                    }
+                }
+                session.setAttribute("order", order);
+                showProducts = "true";
+            }
             if (showProducts != null && showProducts.equals("true")) {
                 if (buy == true) {
                     productQuantityMap.clear();
@@ -102,6 +116,7 @@ public class ShoppingCartDetailsServlet extends HttpServlet {
                 RequestDispatcher req2 = request.getRequestDispatcher("ShopCartDetails.jsp");
                 req2.include(request, response);
             }
+
             if (buyProducts != null && buyProducts.equals("true")) {
                 checkBuy = shopCartController.buyProducts(((Order) session.getAttribute("order")), user);
                 if (checkBuy == null) {
@@ -116,24 +131,7 @@ public class ShoppingCartDetailsServlet extends HttpServlet {
                     session.setAttribute("productQuantityMap", null);
                 }
             }
-            if (deleteProduct != null && order != null){
-                Product product = productDao.findProduct(Integer.parseInt(deleteProduct));
-                Order order = (Order) session.getAttribute("order");
-                ArrayList<OrderProduct> orderProducts = order.getProducts();
-                for (int i = 0; i < orderProducts.size(); i++){
-                    if (Integer.parseInt(deleteProduct) == orderProducts.get(i).getProductCode()){
-                        orderProducts.remove(i);
-                        total = (double) session.getAttribute("total");
-                        total = total - product.getPrice();
-                        session.setAttribute("total", total);
-                    }
-                }
-                session.setAttribute("order", order);
-                
-            }
-
-        }
-        else {
+        } else {
             System.out.println("User can't make order...");
             response.sendRedirect("/Test2");
         }

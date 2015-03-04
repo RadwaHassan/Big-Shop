@@ -62,7 +62,7 @@
 								<li><a href="login.jsp"><span> </span>LOGIN</a></li> |
 								<li ><a href="register.html">SIGNUP</a></li>
 							</ul>
-						<div class="cart"><a href="ShopCartDetails.jsp"><span> </span>CART</a></div>
+						<div class="cart"><a href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?showproducts=true"><span> </span>CART</a></div>
 					<div class="clearfix"> </div>
 				</div>
 				<div class="clearfix"> </div>	

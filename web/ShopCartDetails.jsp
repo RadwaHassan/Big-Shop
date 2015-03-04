@@ -36,6 +36,7 @@
                                     </td>
                                 </tr>
                                 <c:forEach var="productMap" items="${requestScope.productQuantityMap}">
+                                    
                                     <c:set var="product" value="${productMap.key}"/>
                                     <c:set var="quantity" value="${productMap.value}"/>
                                 <tr class="first last units unit_773300010">
@@ -61,7 +62,7 @@
                                                     <span>Screen Size:</span> <span class="text-black">48 Inch</span>
                                                 </div>
                                                 <div class="mart-10">
-                                                    <a href="http://egypt.souq.com/eg-en/shopping_cart.php?action=removeUnit&amp;id_unit=773300010&amp;count=1&amp;active=yes" class="cart-remove-unit cart-remove-active-unit" data-unit-id="773300010" data-unit-ean="2724291111600">Delete</a>
+                                                    <a href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?deleteproduct=${product.code}" class="cart-remove-unit cart-remove-active-unit" data-unit-id="773300010" data-unit-ean="2724291111600">Delete</a>
                                                 <!--    |
                                                     <a href="#" class="cart-save-unit-later" data-unit-id="773300010" data-unit-ean="2724291111600">Save for later</a>
                                                 --></div>
@@ -78,7 +79,7 @@
                                             
                                             <!--update quantity of products-->
                                             <div>
-                                                <a href="#" id="quantity_link_773300010" data-unit-id="773300010" class="quantity_input_link txt9">Update</a>
+                                                <a href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?deleteproduct=${product.code}" id="quantity_link_773300010" data-unit-id="773300010" class="quantity_input_link txt9">Delete</a>
                                             </div>
                                         </span>
                                     </td>
@@ -97,7 +98,8 @@
                             <div class="fl">
                                 
                                 <!--Link to home-->
-                                <a href="http://egypt.souq.com/eg-en/" class="txt10">» Continue shopping</a>
+                                <a href="http://localhost:8084/E_Commerce/HomePage" class="txt10">» Continue shopping</a><p>    </p>
+                                <a href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?buyproducts=true" class="txt10">Buy Products</a>
                             </div>
                             <div class="fr">
                                 <div class="cart-total align-r">
