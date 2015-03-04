@@ -32,7 +32,7 @@
 
                 <div class="products">
                     <h5 class="latest-product">${cat.name}</h5>	
-                    <a class="view-all" href="product.html">VIEW ALL<span> </span></a> 		     
+                    <a class="view-all" href="/E_Commerce/CategoryOfProduct?categoryId=${cat.id}">VIEW ALL<span> </span></a> 		     
                 </div>
 
                 <div class="product-left">

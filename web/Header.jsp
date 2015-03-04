@@ -51,7 +51,7 @@
 			<div class="container">
 				<div class="header-bottom-left">
 					<div class="logo">
-						<a href="index.html"><img src="images/logo.png" alt=" " /></a>
+						<a href="/E_Commerce/HomePage"><img src="images/logo.png" alt=" " /></a>
 					</div>
 					
 					<div class="clearfix"> </div>
