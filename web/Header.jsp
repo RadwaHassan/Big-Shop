@@ -4,6 +4,7 @@
     Author     : shimaa azmy
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +19,19 @@
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <!--fonts-->
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+        
+        <!-- Bootstrap Core CSS -->
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="../css/sb-admin.css" rel="stylesheet">
+
+        <!-- Morris Charts CSS -->
+        <link href="../css/plugins/morris.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
+        
         <!--//fonts-->
         <script src="js/jquery.min.js"></script>
         <!--script-->

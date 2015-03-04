@@ -121,19 +121,38 @@ public class ShoppingCartDetailsServlet extends HttpServlet {
                 checkBuy = shopCartController.buyProducts(((Order) session.getAttribute("order")), user);
                 if (checkBuy == null) {
                     System.out.println("order is empty");
+                    String message = "order is empty";
+                    request.setAttribute("message", message);
+                    RequestDispatcher req3 = request.getRequestDispatcher("Buy.jsp");
+                    req3.forward(request, response);
                 } else if (checkBuy == "0") {
                     System.out.println("credit not enough");
+                    String message = "credit is not enough";
+                    request.setAttribute("message", message);
+                    RequestDispatcher req3 = request.getRequestDispatcher("Buy.jsp");
+                    req3.forward(request, response);
                 } else {
-                    System.out.println("Total price = " + checkBuy);
                     buy = true;
+                    System.out.println("Total price = " + checkBuy);
+                    String message = "Total price is " + checkBuy;
+                    User user2 = (User) session.getAttribute("user");
+                    double credit = user2.getCredit();
+                    double total2 = (double) session.getAttribute("total");
+                    credit = credit - total2;
+                    user2.setCredit(credit);
+                    System.out.println("User updated "+UserDao.getInstance().updateUserCredit(user2));
                     session.setAttribute("total", null);
                     session.setAttribute("order", null);
                     session.setAttribute("productQuantityMap", null);
+                    request.setAttribute("message", message);
+                    RequestDispatcher req3 = request.getRequestDispatcher("Buy.jsp");
+                    req3.forward(request, response);
+
                 }
             }
         } else {
             System.out.println("User can't make order...");
-            response.sendRedirect("/Test2");
+            response.sendRedirect("Login");
         }
     }
 

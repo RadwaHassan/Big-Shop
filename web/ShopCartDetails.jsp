@@ -14,7 +14,7 @@
         <link href="css/shopcart.css" rel="stylesheet" type="text/css" />
     </head>
     <body>
-
+        <jsp:include page="Header.jsp" />
         <div width="50px" id="col3_content" class="clearfix"><div id="body-column-main"><div id="box-shoppingCart" class="box-container box-container-none   ">
                     <div class="box box-style-none  box-padding-none"><input type="hidden" name="CartUnitsCounter" id="CartUnitsCounter" value="1">
 
@@ -43,14 +43,14 @@
                                     <td class="itemList-browse-cover">
                                         <div class="cart-image-top-container-small">
                                             <!--Link of product details-->
-                                            <a href="http://egypt.souq.com/eg-en/unit_one.php?id_unit=773300010" title=${product.name}>
+                                            <a href="#" title=${product.name}>
                                                 <img src=${product.imagePath} class="img-size-small" alt="Please Wait" title=${product.name}>
                                             </a>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="phone-width-120">
-                                            <a href="http://egypt.souq.com/eg-en/unit_one.php?id_unit=773300010">${product.name}</a>
+                                            <a href="#">${product.name}</a>
                                             <div class="mart-5">
                                                 <div>
                                                     <span>Seller:</span> <span class="text-black">DOD-EGY</span>
@@ -71,7 +71,7 @@
                                         </div>
                                     </td>
                                     <td class="align-c txt11">
-                                        <img src="http://cf3.souqcdn.com/static/ltr/en/images/ajax-loader.gif" alt="Please Wait" style="display:none;" id="loading_773300010">
+                                        <img src="#" alt="Please Wait" style="display:none;" id="loading_773300010">
                                         <span id="update_quantity_fields_all_773300010">
                                             <input type="text" id="quantity_773300010" data-unit-id="773300010" class="quantity_input width-30 align-c bord-gray-dark pad-4-2" value="${quantity}" size="3" maxlength="3">
                                             <input type="hidden" id="old_quantity_773300010" value="${quantity}">
@@ -118,6 +118,6 @@
 
         </c:forEach>
 
-
+        <jsp:include page="footer.jsp" />
     </body>
 </html>

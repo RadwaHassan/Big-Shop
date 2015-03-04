@@ -199,7 +199,38 @@ public class UserDao {
 
     }
     
-    
+                 public boolean updateUserCredit(User user) {
+        Connection connection = null;
+        int rowaffected = 0;
+        boolean isUpdated = false;
+        try {
+
+            connection = new DBConnection().getConnection();
+            String updatequery =" update ecommerce.user set credit ='"+user.getCredit()+"' where email='"+user.getEmail()+"';";
+            Statement statement = connection.createStatement();
+            rowaffected = statement.executeUpdate(updatequery);
+            if (rowaffected > 0) {
+                isUpdated = true;
+
+            } else {
+                isUpdated = false;
+            }
+            statement.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        finally{
+            if (connection !=null) {
+                try {
+                    connection.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+        return isUpdated ;
+
+    }
     
 
 }
