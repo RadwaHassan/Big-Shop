@@ -26,6 +26,8 @@ public class AuthenticationController {
 	public User signIn(String email){
 	   UserDao userdao=UserDao .getInstance();
            User user=userdao.findUser(email);
+           user.setStatus(1);
+           userDao.changeStatus(email, 1);
            return user;
            
 	}

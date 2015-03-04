@@ -4,7 +4,6 @@
         <filter-name>AdminFilter</filter-name>
         <filter-class>filters.AdminFilter</filter-class>
     </filter>
-   
     <servlet>
         <servlet-name>registration</servlet-name>
         <servlet-class>servlet.registration</servlet-class>
@@ -49,16 +48,18 @@
         <servlet-name>UpdateProduct</servlet-name>
         <servlet-class>servlet.UpdateProduct</servlet-class>
     </servlet>
-      <servlet>
+    <servlet>
         <servlet-name>Login</servlet-name>
         <servlet-class>servlet.Login</servlet-class>
     </servlet>
-    
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>servlet.Logout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>registration</servlet-name>
         <url-pattern>/registration</url-pattern>
@@ -119,5 +120,8 @@
         <servlet-name>UpdateProduct</servlet-name>
         <url-pattern>/admin/UpdateProduct</url-pattern>
     </servlet-mapping>
- 
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
 </web-app>
