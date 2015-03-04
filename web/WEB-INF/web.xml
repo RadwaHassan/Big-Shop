@@ -79,6 +79,14 @@
         <servlet-name>HomePage</servlet-name>
         <servlet-class>servlet.HomePage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShoppingCartDetailsServlet</servlet-name>
+        <servlet-class>servlet.ShoppingCartDetailsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShoppingCartDetailsServlet</servlet-name>
+        <url-pattern>/ShoppingCartDetailsServlet</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomePage</servlet-name>
         <url-pattern>/HomePage</url-pattern>
