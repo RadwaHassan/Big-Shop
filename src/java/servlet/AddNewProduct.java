@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import utility.MyFilter;
 
 /**
  *
@@ -36,6 +37,11 @@ public class AddNewProduct extends HttpServlet {
             throws ServletException, IOException {
         
         
+        //check admin
+        if(MyFilter.adminFilter(request, response))
+            return;
+        
+        
         // set category id attribure on request
         request.setAttribute("categoryId", request.getParameter("categoryId"));
         
@@ -52,6 +58,11 @@ public class AddNewProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //check admin
+        if(MyFilter.adminFilter(request, response))
+            return;
+        
         
         // get session
         HttpSession session = request.getSession();

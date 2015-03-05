@@ -10,6 +10,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+         <title>Big shope A Ecommerce Category Flat Bootstarp Resposive Website Template | Home :: w3layouts</title>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <!--theme-style-->
+        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />	
+        <!--//theme-style-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!--fonts-->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <!--//fonts-->
+        <script src="js/jquery.min.js"></script>
+        <!--script-->
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/shopcart.css" rel="stylesheet" type="text/css" />
     </head>
@@ -18,9 +32,9 @@
         <div width="50px" id="col3_content" class="clearfix"><div id="body-column-main"><div id="box-shoppingCart" class="box-container box-container-none   ">
                     <div class="box box-style-none  box-padding-none"><input type="hidden" name="CartUnitsCounter" id="CartUnitsCounter" value="1">
 
-                        <h1 class="cart-section-title">Shopping cart</h1>
+                        <h1 class="cart-section-title" style="margin-left: 120px">Shopping cart</h1>
 
-                        <table id="shopping-cart-active-table" width="100%" border="0" cellspacing="0" cellpadding="0" class="shopping-cart">
+                        <table id="shopping-cart-active-table" width="100%" border="0" cellspacing="0" cellpadding="0" class="shopping-cart" style="width: 80%; margin-left: 120px">
                             <tbody><tr>
                                     <td scope="col" colspan="2" class="cart-btm-table align-l">Items To Buy Now </td>
                                     <td scope="col" class="cart-btm-table width-70 align-c">Qty</td>
@@ -44,7 +58,7 @@
                                         <div class="cart-image-top-container-small">
                                             <!--Link of product details-->
                                             <a href="#" title=${product.name}>
-                                                <img src=${product.imagePath} class="img-size-small" alt="Please Wait" title=${product.name}>
+                                                <img src="${product.imagePath}" style="width: 15%; height: 10%; margin-left: 20px" class="img-size-small" alt="Please Wait" title=${product.name}>
                                             </a>
                                         </div>
                                     </td>
@@ -94,12 +108,12 @@
                                 </tr>
                                 </c:forEach>
                             </tbody></table>
-                        <div class="cls cart-btm-table">
+                        <div class="cls cart-btm-table" style="width: 80%; margin-left: 120px">
                             <div class="fl">
                                 
                                 <!--Link to home-->
-                                <a href="http://localhost:8084/E_Commerce/HomePage" class="txt10">» Continue shopping</a><p>    </p>
-                                <a href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?buyproducts=true" class="txt10">Buy Products</a>
+                                <a class="btn-default" href="http://localhost:8084/E_Commerce/HomePage" class="txt10">» Continue shopping</a><p>    </p>
+                                <a class="search" href="http://localhost:8084/E_Commerce/ShoppingCartDetailsServlet?buyproducts=true" class="txt10">Buy Products</a>
                             </div>
                             <div class="fr">
                                 <div class="cart-total align-r">

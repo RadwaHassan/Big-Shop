@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import utility.MyFilter;
 
 /**
  *
@@ -32,6 +33,11 @@ public class AddNewCategory extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        //check admin
+        if(MyFilter.adminFilter(request, response))
+            return;
+        
+        
         // forward request to AddNewCategory.jsp
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/admin/AddNewCategory.jsp");
         dispatcher.forward(request, response);
@@ -40,6 +46,10 @@ public class AddNewCategory extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //check admin
+        if(MyFilter.adminFilter(request, response))
+            return;
         
         // get category name parameter
         String catName = request.getParameter("name");

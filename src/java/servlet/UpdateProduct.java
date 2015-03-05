@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import utility.MyFilter;
 
 /**
  *
@@ -37,6 +38,9 @@ public class UpdateProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        //check admin
+        if(MyFilter.adminFilter(request, response))
+            return;
         
         // get product code parameter
         String productCodeString = request.getParameter("productCode");
